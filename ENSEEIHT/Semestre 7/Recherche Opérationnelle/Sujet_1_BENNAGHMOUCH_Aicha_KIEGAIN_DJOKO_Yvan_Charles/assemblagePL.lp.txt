@@ -1,0 +1,10 @@
+\* Problem: Assemblage *\
+
+Maximize
+ Marge: + 10000 NL + 9000 NS 
+
+Subject To
+ C1: NL <= 800
+ C2: +10 NL +20 NS <= 15000
+ C3: + 0.06 NL + 0.05 NS <= 60
+End

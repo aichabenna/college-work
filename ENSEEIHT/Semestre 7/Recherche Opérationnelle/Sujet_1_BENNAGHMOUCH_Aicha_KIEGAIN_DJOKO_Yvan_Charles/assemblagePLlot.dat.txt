@@ -1,0 +1,27 @@
+data;
+
+set VOITURES :=
+L
+S;
+
+param marge :=
+L 100
+S 90;
+
+param placeOccupe :=
+L 10
+S 20;
+
+param heureParLot :=
+L 6
+S 5;
+
+param nombreVoitureMax :=
+L 8
+S 8000; # nb tres grand
+
+param tailleParking := 
+150;
+
+param heureTravailMax :=
+60;

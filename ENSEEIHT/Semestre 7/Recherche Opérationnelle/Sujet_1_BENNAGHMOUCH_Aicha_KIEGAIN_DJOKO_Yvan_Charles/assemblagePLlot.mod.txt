@@ -1,0 +1,41 @@
+#  GLPK model file created by SUN for RO teaching
+
+
+###############################  Model ###############################
+
+
+###############################  Sets  ###############################
+
+set VOITURES; 
+
+################### Variables ###################
+
+var N{i in VOITURES}, >=0; #nombre de lot de 100 voitures
+
+###################  Constants: Data to load   #########################
+
+param marge{i in VOITURES}; 
+param placeOccupe{i in VOITURES}; 
+param heureParLot{i in VOITURES};
+param nombreVoitureMax{i in VOITURES};
+param tailleParking;
+param heureTravailMax;
+
+################### Constraints ###################
+
+s.t. VoitureLimite{i in VOITURES}:
+	N[i] <= nombreVoitureMax[i];
+
+s.t. DiponibiliteParking:
+  sum{i in VOITURES} placeOccupe[i] * N[i] <= tailleParking;
+
+s.t. TempsDeTravail:
+	sum{i in VOITURES} heureParLot[i] * N[i] <= heureTravailMax;
+
+###### Objective ######
+
+maximize Marge: 
+	sum{i in VOITURES} marge[i] * N[i];
+
+
+end;

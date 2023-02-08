@@ -1,0 +1,45 @@
+###############################  Model ###############################
+
+
+###############################  Sets  ###############################
+
+set MAGASINS;
+
+set PRODUITS;
+
+set DEMANDES;
+
+################### Variables ###################
+
+var livraison{d in DEMANDES, p in PRODUITS, m in MAGASINS} >= 0, integer; 
+
+var expedie{m in MAGASINS, d in DEMANDES}, binary;
+
+###################  Constants: Data to load   #########################
+
+param demandes{d in DEMANDES, p in PRODUITS};
+
+param stocks{m in MAGASINS, p in PRODUITS};
+
+param couts{m in MAGASINS, p in PRODUITS};
+
+param coutsFixesExp{m in MAGASINS, d in DEMANDES};
+
+param coutsVarExp{m in MAGASINS, d in DEMANDES};
+
+################### Constraints ###################
+
+s.t. DemandeRespectee{d in DEMANDES, p in PRODUITS}:
+  sum{m in MAGASINS} livraison[d,p,m] = demandes[d,p];
+
+s.t. StockRespecte{m in MAGASINS, p in PRODUITS}:
+  sum{d in DEMANDES} livraison[d,p,m] <= stocks[m,p];
+
+s.t. Expedition{m in MAGASINS, d in DEMANDES}:
+  sum{p in PRODUITS} expedie[m,d] * stocks[m,p] >= sum{p in PRODUITS} livraison[d,p,m];
+
+###### Objective ######
+
+minimize CoutTotal: 
+		(sum{d in DEMANDES} sum{p in PRODUITS} sum{m in MAGASINS} livraison[d,p,m] * (coutsVarExp[m,d] + couts[m,p]) ) + (sum{m in MAGASINS} sum{d in DEMANDES} expedie[m,d] * coutsFixesExp[m,d]); 
+

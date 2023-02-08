@@ -1,0 +1,35 @@
+###############################  Model ###############################
+
+
+###############################  Sets  ###############################
+
+set MAGASINS;
+
+set FLUIDES;
+
+set DEMANDES;
+
+################### Variables ###################
+
+var livraison{m in MAGASINS, f in FLUIDES, d in DEMANDES} >= 0; 
+
+###################  Constants: Data to load   #########################
+
+param demandes{d in DEMANDES, f in FLUIDES};
+
+param stocks{m in MAGASINS, f in FLUIDES};
+
+param couts{m in MAGASINS, f in FLUIDES};
+
+################### Constraints ###################
+
+s.t. DemandeRespectee{d in DEMANDES, f in FLUIDES}:
+  sum{m in MAGASINS} livraison[m,f,d] = demandes[d,f];
+
+s.t. StockRespecte{m in MAGASINS, f in FLUIDES}:
+  sum{d in DEMANDES} livraison[m,f,d] <= stocks[m,f];
+
+###### Objective ######
+
+minimize CoutTotal: 
+		sum{m in MAGASINS} sum{f in FLUIDES} sum{d in DEMANDES} couts[m,f]*livraison[m,f,d]; 

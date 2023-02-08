@@ -1,0 +1,93 @@
+Problem:    eCommerceCas3
+Rows:       17
+Columns:    18 (18 integer, 6 binary)
+Non-zeros:  60
+Status:     INTEGER OPTIMAL
+Objective:  CoutTotal = 368 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 DemandeRespectee[D1,P1]
+                                   2             2             = 
+     2 DemandeRespectee[D1,P2]
+                                   0            -0             = 
+     3 DemandeRespectee[D2,P1]
+                                   1             1             = 
+     4 DemandeRespectee[D2,P2]
+                                   3             3             = 
+     5 StockRespecte[M1,P1]
+                                   1                         2.5 
+     6 StockRespecte[M1,P2]
+                                   1                           1 
+     7 StockRespecte[M2,P1]
+                                   0                           1 
+     8 StockRespecte[M2,P2]
+                                   2                           2 
+     9 StockRespecte[M3,P1]
+                                   2                           2 
+    10 StockRespecte[M3,P2]
+                                   0                           1 
+    11 Expedition[M1,D1]
+                                   0            -0               
+    12 Expedition[M1,D2]
+                                 1.5            -0               
+    13 Expedition[M2,D1]
+                                   0            -0               
+    14 Expedition[M2,D2]
+                                   1            -0               
+    15 Expedition[M3,D1]
+                                   1            -0               
+    16 Expedition[M3,D2]
+                                   0            -0               
+    17 CoutTotal                 368                             
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 livraison[D1,P1,M1]
+                    *              0             0               
+     2 livraison[D1,P1,M2]
+                    *              0             0               
+     3 livraison[D1,P1,M3]
+                    *              2             0               
+     4 livraison[D1,P2,M1]
+                    *              0             0               
+     5 livraison[D1,P2,M2]
+                    *              0             0               
+     6 livraison[D1,P2,M3]
+                    *              0             0               
+     7 livraison[D2,P1,M1]
+                    *              1             0               
+     8 livraison[D2,P1,M2]
+                    *              0             0               
+     9 livraison[D2,P1,M3]
+                    *              0             0               
+    10 livraison[D2,P2,M1]
+                    *              1             0               
+    11 livraison[D2,P2,M2]
+                    *              2             0               
+    12 livraison[D2,P2,M3]
+                    *              0             0               
+    13 expedie[M1,D1]
+                    *              0             0             1 
+    14 expedie[M1,D2]
+                    *              1             0             1 
+    15 expedie[M2,D1]
+                    *              0             0             1 
+    16 expedie[M2,D2]
+                    *              1             0             1 
+    17 expedie[M3,D1]
+                    *              1             0             1 
+    18 expedie[M3,D2]
+                    *              0             0             1 
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

@@ -1,0 +1,42 @@
+###############################  Model ###############################
+
+
+###############################  Sets  ###############################
+
+set POINTS;     # magazin + Clients
+set CLIENTS;
+
+################### Variables ###################
+
+var toBeDone {a in POINTS, b in POINTS}, binary;
+var ordrePassage { c in CLIENTS}, integer;
+
+###################  Constants: Data to load   #########################
+
+param distances{ a in POINTS, b in POINTS}; # interger
+param nbClients;
+
+################### Constraints ###################
+
+s.t. UnParColonne{a in POINTS}:
+    sum{b in POINTS} toBeDone[a,b] = 1;
+
+s.t. UnParLigne{b in POINTS}:
+    sum{a in POINTS} toBeDone[a,b] = 1;
+
+#s.t. DiagNonNulle{a in POINTS}:
+#    toBeDone[a,a] = 0;
+
+s.t. RespectOrdre{c1 in CLIENTS, c2 in CLIENTS}:
+    ordrePassage[c2] + (nbClients-1)  >= ordrePassage[c1] + nbClients*toBeDone[c1,c2];
+
+#s.t. PositiveOrdre{c in CLIENTS}:
+#   ordrePassage[c] >= 1;
+
+#s.t. InfOrdre{c in CLIENTS}:
+#    ordrePassage[c] <= nbClients-1;
+
+###### Objective ######
+
+minimize DistancesMin:
+	sum{a in POINTS} sum{b in POINTS} distances[a,b] * toBeDone[a,b]; 

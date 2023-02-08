@@ -1,0 +1,181 @@
+Problem:    eCommerceCas4
+Rows:       38
+Columns:    41 (41 integer, 36 binary)
+Non-zeros:  167
+Status:     INTEGER OPTIMAL
+Objective:  DistancesMin = 22 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 UnParColonne[ALPHA]
+                                   1             1             = 
+     2 UnParColonne[C1]
+                                   1             1             = 
+     3 UnParColonne[C2]
+                                   1             1             = 
+     4 UnParColonne[C3]
+                                   1             1             = 
+     5 UnParColonne[C4]
+                                   1             1             = 
+     6 UnParColonne[C5]
+                                   1             1             = 
+     7 UnParLigne[ALPHA]
+                                   1             1             = 
+     8 UnParLigne[C1]
+                                   1             1             = 
+     9 UnParLigne[C2]
+                                   1             1             = 
+    10 UnParLigne[C3]
+                                   1             1             = 
+    11 UnParLigne[C4]
+                                   1             1             = 
+    12 UnParLigne[C5]
+                                   1             1             = 
+    13 RespectOrdre[C1,C1]
+                                   0            -4               
+    14 RespectOrdre[C1,C2]
+                                   4            -4               
+    15 RespectOrdre[C1,C3]
+                                  -4            -4               
+    16 RespectOrdre[C1,C4]
+                                   2            -4               
+    17 RespectOrdre[C1,C5]
+                                   3            -4               
+    18 RespectOrdre[C2,C1]
+                                  -4            -4               
+    19 RespectOrdre[C2,C2]
+                                   0            -4               
+    20 RespectOrdre[C2,C3]
+                                  -3            -4               
+    21 RespectOrdre[C2,C4]
+                                  -2            -4               
+    22 RespectOrdre[C2,C5]
+                                  -1            -4               
+    23 RespectOrdre[C3,C1]
+                                  -1            -4               
+    24 RespectOrdre[C3,C2]
+                                   3            -4               
+    25 RespectOrdre[C3,C3]
+                                   0            -4               
+    26 RespectOrdre[C3,C4]
+                                  -4            -4               
+    27 RespectOrdre[C3,C5]
+                                   2            -4               
+    28 RespectOrdre[C4,C1]
+                                  -2            -4               
+    29 RespectOrdre[C4,C2]
+                                   2            -4               
+    30 RespectOrdre[C4,C3]
+                                  -1            -4               
+    31 RespectOrdre[C4,C4]
+                                   0            -4               
+    32 RespectOrdre[C4,C5]
+                                  -4            -4               
+    33 RespectOrdre[C5,C1]
+                                  -3            -4               
+    34 RespectOrdre[C5,C2]
+                                  -4            -4               
+    35 RespectOrdre[C5,C3]
+                                  -2            -4               
+    36 RespectOrdre[C5,C4]
+                                  -1            -4               
+    37 RespectOrdre[C5,C5]
+                                   0            -4               
+    38 DistancesMin               22                             
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 toBeDone[ALPHA,ALPHA]
+                    *              0             0             1 
+     2 toBeDone[ALPHA,C1]
+                    *              1             0             1 
+     3 toBeDone[ALPHA,C2]
+                    *              0             0             1 
+     4 toBeDone[ALPHA,C3]
+                    *              0             0             1 
+     5 toBeDone[ALPHA,C4]
+                    *              0             0             1 
+     6 toBeDone[ALPHA,C5]
+                    *              0             0             1 
+     7 toBeDone[C1,ALPHA]
+                    *              0             0             1 
+     8 toBeDone[C1,C1]
+                    *              0             0             1 
+     9 toBeDone[C1,C2]
+                    *              0             0             1 
+    10 toBeDone[C1,C3]
+                    *              1             0             1 
+    11 toBeDone[C1,C4]
+                    *              0             0             1 
+    12 toBeDone[C1,C5]
+                    *              0             0             1 
+    13 toBeDone[C2,ALPHA]
+                    *              1             0             1 
+    14 toBeDone[C2,C1]
+                    *              0             0             1 
+    15 toBeDone[C2,C2]
+                    *              0             0             1 
+    16 toBeDone[C2,C3]
+                    *              0             0             1 
+    17 toBeDone[C2,C4]
+                    *              0             0             1 
+    18 toBeDone[C2,C5]
+                    *              0             0             1 
+    19 toBeDone[C3,ALPHA]
+                    *              0             0             1 
+    20 toBeDone[C3,C1]
+                    *              0             0             1 
+    21 toBeDone[C3,C2]
+                    *              0             0             1 
+    22 toBeDone[C3,C3]
+                    *              0             0             1 
+    23 toBeDone[C3,C4]
+                    *              1             0             1 
+    24 toBeDone[C3,C5]
+                    *              0             0             1 
+    25 toBeDone[C4,ALPHA]
+                    *              0             0             1 
+    26 toBeDone[C4,C1]
+                    *              0             0             1 
+    27 toBeDone[C4,C2]
+                    *              0             0             1 
+    28 toBeDone[C4,C3]
+                    *              0             0             1 
+    29 toBeDone[C4,C4]
+                    *              0             0             1 
+    30 toBeDone[C4,C5]
+                    *              1             0             1 
+    31 toBeDone[C5,ALPHA]
+                    *              0             0             1 
+    32 toBeDone[C5,C1]
+                    *              0             0             1 
+    33 toBeDone[C5,C2]
+                    *              1             0             1 
+    34 toBeDone[C5,C3]
+                    *              0             0             1 
+    35 toBeDone[C5,C4]
+                    *              0             0             1 
+    36 toBeDone[C5,C5]
+                    *              0             0             1 
+    37 ordrePassage[C1]
+                    *             -3                             
+    38 ordrePassage[C2]
+                    *              1                             
+    39 ordrePassage[C3]
+                    *             -2                             
+    40 ordrePassage[C4]
+                    *             -1                             
+    41 ordrePassage[C5]
+                    *              0                             
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output
