@@ -1,0 +1,168 @@
+
+type token = 
+  | UL_POINT
+  | UL_PAROUV
+  | UL_PARFER
+  | UL_IDENT of (
+# 13 "Parser.mly"
+       (string)
+# 10 "Parser__mock.ml.mock"
+)
+  | UL_FIN
+  | UL_ENTIER of (
+# 12 "Parser.mly"
+       (int)
+# 16 "Parser__mock.ml.mock"
+)
+
+# 1 "Parser.mly"
+  
+
+(* Partie recopiee dans le fichier CaML genere. *)
+(* Ouverture de modules exploites dans les actions *)
+(* Declarations de types, de constantes, de fonctions, d'exceptions exploites dans les actions *)
+
+
+# 27 "Parser__mock.ml.mock"
+
+let menhir_begin_marker =
+  0
+
+and (xv_scheme, xv_s_expression_parenthese, xv_s_expression_boucle, xv_s_expression, xv_expression_parenthesee) =
+  let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 34 "Parser.mly"
+                     _2
+# 36 "Parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 34 "Parser.mly"
+        _1
+# 40 "Parser__mock.ml.mock"
+   : 'tv_s_expression) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
+    ((
+# 34 "Parser.mly"
+                             ( (print_endline "programme : S-expression UL_FIN ") )
+# 45 "Parser__mock.ml.mock"
+     : 'tv_scheme) : (
+# 27 "Parser.mly"
+      (unit)
+# 49 "Parser__mock.ml.mock"
+    )) in
+  let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 46 "Parser.mly"
+                                                          _3
+# 54 "Parser__mock.ml.mock"
+   : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 46 "Parser.mly"
+                                   _2
+# 58 "Parser__mock.ml.mock"
+   : 'tv_expression_parenthesee) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 46 "Parser.mly"
+                         _1
+# 62 "Parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
+    (
+# 46 "Parser.mly"
+                                                                     ( (print_endline "S-expression : expression UL_FIN ") )
+# 67 "Parser__mock.ml.mock"
+     : 'tv_s_expression_parenthese) in
+  let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 44 "Parser.mly"
+                                  _2
+# 72 "Parser__mock.ml.mock"
+   : 'tv_s_expression_boucle) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 44 "Parser.mly"
+                     _1
+# 76 "Parser__mock.ml.mock"
+   : 'tv_s_expression) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
+    (
+# 44 "Parser.mly"
+                                                       ( (print_endline "S-expression : expression UL_FIN ") )
+# 81 "Parser__mock.ml.mock"
+     : 'tv_s_expression_boucle) in
+  let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) ->
+    (
+# 43 "Parser.mly"
+                                      ( (print_endline "programme : S-expression UL_FIN ") )
+# 87 "Parser__mock.ml.mock"
+     : 'tv_s_expression_boucle) in
+  let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 38 "Parser.mly"
+                 _1
+# 92 "Parser__mock.ml.mock"
+   : (
+# 12 "Parser.mly"
+       (int)
+# 96 "Parser__mock.ml.mock"
+  )) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
+    (
+# 38 "Parser.mly"
+                            ( (print_endline "S-expression : expression UL_FIN ") )
+# 101 "Parser__mock.ml.mock"
+     : 'tv_s_expression) in
+  let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 37 "Parser.mly"
+                 _1
+# 106 "Parser__mock.ml.mock"
+   : (
+# 13 "Parser.mly"
+       (string)
+# 110 "Parser__mock.ml.mock"
+  )) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
+    (
+# 37 "Parser.mly"
+                           ( (print_endline "S-expression : expression UL_FIN ") )
+# 115 "Parser__mock.ml.mock"
+     : 'tv_s_expression) in
+  let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 36 "Parser.mly"
+              _1
+# 120 "Parser__mock.ml.mock"
+   : 'tv_s_expression_parenthese) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
+    (
+# 36 "Parser.mly"
+                                       ( (print_endline "S-expression : expression UL_FIN ") )
+# 125 "Parser__mock.ml.mock"
+     : 'tv_s_expression) in
+  let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 41 "Parser.mly"
+                         _1
+# 130 "Parser__mock.ml.mock"
+   : 'tv_s_expression_boucle) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
+    (
+# 41 "Parser.mly"
+                                              ( (print_endline "S-expression : expression UL_FIN ") )
+# 135 "Parser__mock.ml.mock"
+     : 'tv_expression_parenthesee) in
+  let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 40 "Parser.mly"
+                                              _3
+# 140 "Parser__mock.ml.mock"
+   : 'tv_s_expression) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 40 "Parser.mly"
+                                     _2
+# 144 "Parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 40 "Parser.mly"
+                        _1
+# 148 "Parser__mock.ml.mock"
+   : 'tv_s_expression) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
+    (
+# 40 "Parser.mly"
+                                                            ( (print_endline "S-expression : expression UL_FIN ") )
+# 153 "Parser__mock.ml.mock"
+     : 'tv_expression_parenthesee) in
+  (raise Not_found : 'tv_scheme * 'tv_s_expression_parenthese * 'tv_s_expression_boucle * 'tv_s_expression * 'tv_expression_parenthesee)
+
+and menhir_end_marker =
+  0
+
+# 49 "Parser.mly"
+  
+
+
+# 164 "Parser__mock.ml.mock"
+
+# 269 "<standard.mly>"
+  
+
+# 169 "Parser__mock.ml.mock"
