@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simplepdl:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    name="CollegeApplication">
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToSuccessors="//@processElements.2"
+      name="SchoolSelection"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.2"
+      name="Applying"
+      allocate="//@processElements.5 //@processElements.4"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToStart"
+      predecessor="//@processElements.0"
+      successor="//@processElements.1"/>
+  <processElements
+      xsi:type="simplepdl:Resource"
+      name="RecommandationLetter"
+      quantity="4"/>
+  <processElements
+      xsi:type="simplepdl:Allocate"
+      occurence="3"
+      resource="//@processElements.3"/>
+  <processElements
+      xsi:type="simplepdl:Allocate"
+      occurence="1"
+      resource="//@processElements.6"/>
+  <processElements
+      xsi:type="simplepdl:Resource"
+      name="ApplicationFee"
+      quantity="1"/>
+</simplepdl:Process>

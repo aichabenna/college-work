@@ -1,0 +1,79 @@
+[comment encoding = UTF-8 /]
+[module toTINA('http://petrinet')]
+
+
+[template public netToTINA(aNet : Net)]
+[comment @main/]
+[file (aNet.name+ '.net', false, 'UTF-8')]
+net [aNet.name/]
+[let pls : OrderedSet(Place) = aNet.getPlace() ]
+[if (pls->size() > 0)]
+[for (pl : Place | pls)]
+pl [pl.name/] ([pl.token/])
+[/for]
+[/if]
+[if (pls->size() <= 0)]
+erreur
+[/if]
+[/let]
+[let trs : OrderedSet(Transition) = aNet.getTransition() ]
+[if (trs->size() > 0)]
+[for (tr : Transition | trs)]
+tr [tr.name/] [tr.inArc->toPlSource()/] -> [tr.outArc->toPlTarget()/]
+[/for]
+[/if]
+[/let]
+
+[/file]
+[/template]
+
+[query public getPlace(n: Net) : OrderedSet(Place) =
+n.netElement->select( e | e.oclIsTypeOf(Place) )
+->collect( e | e.oclAsType(Place) )
+->asOrderedSet()
+/]
+
+[query public getTransition(n: Net) : OrderedSet(Transition) =
+n.netElement->select( e | e.oclIsTypeOf(Transition) )
+->collect( e | e.oclAsType(Transition) )
+->asOrderedSet()
+/]
+
+[query public getPlTarget(a: Arc) : OrderedSet(Place) =
+a.target->select( e | e.oclIsTypeOf(Place) )
+->collect( e | e.oclAsType(Place) )
+->asOrderedSet()
+/]
+
+[query public getPlSource(a: Arc) : OrderedSet(Place) =
+a.source->select( e | e.oclIsTypeOf(Place) )
+->collect( e | e.oclAsType(Place) )
+->asOrderedSet()
+/]
+       
+[query public getPlaceName(arc : Arc) : String =
+	if (arc.weigth > 1 and arc.type = ArcType::classic) then
+		'*'.concat(arc.weigth.toString())
+		else if (arc.weigth > 0 and arc.type = ArcType::readArc) then
+	        '?'.concat(arc.weigth.toString())
+			else
+				''
+			endif
+	endif
+/]
+
+[template public toPlSource(arcs : OrderedSet(Arc)) post (trim()) ]
+[for (arc: Arc | arcs)]
+[for (place: Place | getPlSource(arc)) after(' ')
+][place.name.concat(getPlaceName(arc))
+/][/for]
+[/for]
+[/template]
+
+[template public toPlTarget(arcs : OrderedSet(Arc)) post (trim()) ]
+[for (arc: Arc | arcs)]
+[for (place: Place | getPlTarget(arc)) after(' ')
+][place.name.concat(getPlaceName(arc))	
+/][/for]
+[/for]
+[/template]

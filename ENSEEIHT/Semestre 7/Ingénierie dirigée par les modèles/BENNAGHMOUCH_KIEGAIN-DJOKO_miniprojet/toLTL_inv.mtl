@@ -1,0 +1,20 @@
+[comment encoding = UTF-8 /]
+[module toLTL2('http://simplepdl')]
+
+
+[template public toLTL_inv(aProcess : Process)]
+[comment @main/]
+[file (aProcess.name + '_inv.ltl' , false, 'UTF-8')]
+
+[for (wd : WorkDefinition | aProcess.getWorkDefinitions())]
+['[] <>'/] (- ( [wd.name/]_ready /\ [wd.name/]_running )) /\ (- ( [wd.name/]_running /\ [wd.name/]_finished )) /\ (- ( [wd.name/]_finished /\ [wd.name/]_ready ));
+[/for]
+
+[/file]
+[/template]
+
+[query public getWorkDefinitions(p : Process) : OrderedSet(WorkDefinition) = 
+	p.processElements->select( e | e.oclIsTypeOf(WorkDefinition) )
+		->collect( e | e.oclAsType(WorkDefinition) )
+		->asOrderedSet()
+/]

@@ -1,0 +1,47 @@
+import 'PetriNet.ecore'
+
+package petrinet 
+
+context Net
+inv netValidName('Invalid name: ' + self.name):
+    self.name.matches('[A-Za-z][A-Za-z0-9]*')
+
+
+context NetElement
+def: net(): Net =
+	 Net.allInstances()
+		->select(p | p.netElement->includes(self))
+		->asSequence()->first()
+
+
+context Place
+inv posToken: self.token >=0
+inv placeNameIsDefined: if self.name.oclIsUndefined() then false
+                   else self.name <> ''
+                   endif      
+inv placeUniqNames: self.net().netElement
+	->select(p | p.oclIsKindOf(Place))
+	->collect(p | p.oclAsType(Place))
+	->forAll(p | self = p or self.name <> p.name)->size() = 1
+
+
+context Transition
+inv transitionUniqNames: self.net().netElement
+	->select(t | t.oclIsKindOf(Transition))
+	->collect(t | t.oclAsType(Transition))
+	->forAll(t | self = t or self.name <> t.name)->size() = 1
+
+context Arc
+inv arcUniqNames: self.net().netElement
+	->select(a | a.oclIsKindOf(Arc))
+	->collect(a | a.oclAsType(Arc))
+	->forAll(a | self = a or self.name <> a.name)->size() = 1
+inv posWeight: self.weight > 0
+inv differentTransition: not (self.source.oclIsKindOf(Transition) and self.target.oclIsKindOf(Transition)) 
+inv differentPlace: not (self.source.oclIsKindOf(Place) and self.target.oclIsKindOf(Place))
+
+--inv readArcSourceTarget: 
+--	if self.type = readArc::ArcType then
+--	self.source.oclIsKindOf(Place) and self.target.oclIsKindOf(Transition)
+--	endif
+endpackage

@@ -1,0 +1,49 @@
+import 'SimplePDL.ecore'
+
+package simplepdl
+
+context ProcessElement
+def: process(): Process =
+	Process.allInstances()
+		->select(p | p.processElements->includes(self))
+		->asSequence()->first()
+		
+context Process
+inv nameIsDefined:
+if self.name.oclIsUndefined() then false
+else self.name <> ''
+endif
+inv processValidName('Invalid name: ' + self.name):
+	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+
+context WorkDefinition
+inv wdUniqNames: self.Process.processElements
+	->select(pe | pe.oclIsKindOf(WorkDefinition))
+	->collect(pe | pe.oclAsType(WorkDefinition))
+	->forAll(w | self = w or self.name <> w.name)
+inv atLeastTwoChar: self.name.size() >= 2
+inv resourceUniqueType: self.allocate->forAll(a1,a2 | a1 = a2 or a1.resource <> a2.resource)
+inv wdvalidName('Invalid name: ' + self.name): self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+context WorkSequence
+inv notReflexive: self.predecessor <> self.successor
+inv successorAndPredecessorInSameProcess('Activities not in the same process : '
+		+ self.predecessor.name + ' in ' + self.predecessor.process().name+ ' and '
+		+ self.successor.name + ' in ' + self.successor.process().name
+):
+	self.process() = self.successor.process()
+	and self.process() = self.predecessor.process()
+
+context Resource
+inv positiveResourceQuantity: self.quantity > 0
+inv resourceUniqNames: self.Process.processElements
+	->select(pe | pe.oclIsKindOf(Resource))
+	->collect(pe | pe.oclAsType(Resource))
+	->forAll(r | self = r or self.name <> r.name)
+
+context Allocate
+inv positiveOccurence('positive Occurence'): self.occurence >= 0
+inv maxQuantity(''): self.occurence<=self.resource.quantity
+
+endpackage

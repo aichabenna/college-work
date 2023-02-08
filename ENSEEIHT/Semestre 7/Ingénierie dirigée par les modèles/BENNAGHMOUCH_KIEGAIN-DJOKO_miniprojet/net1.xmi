@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pretinet:Net xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pretinet="http://petrinet" name="PetriNet">
+  <netElement xsi:type="pretinet:Place" name="SchoolSelection_ready" outArc="//@netElement.6" token="1"/>
+  <netElement xsi:type="pretinet:Place" name="SchoolSelection_started" inArc="//@netElement.10"/>
+  <netElement xsi:type="pretinet:Place" name="SchoolSelection_running" inArc="//@netElement.7" outArc="//@netElement.8"/>
+  <netElement xsi:type="pretinet:Place" name="SchoolSelection_finished" inArc="//@netElement.9" outArc="//@netElement.26"/>
+  <netElement xsi:type="pretinet:Transition" name="SchoolSelection_start" inArc="//@netElement.6" outArc="//@netElement.7 //@netElement.10"/>
+  <netElement xsi:type="pretinet:Transition" name="SchoolSelection_finish" inArc="//@netElement.8" outArc="//@netElement.9"/>
+  <netElement xsi:type="pretinet:Arc" name="(SchoolSelection_ready->SchoolSelection_start)" source="//@netElement.0" target="//@netElement.4"/>
+  <netElement xsi:type="pretinet:Arc" name="(SchoolSelection_start->SchoolSelection_running)" source="//@netElement.4" target="//@netElement.2"/>
+  <netElement xsi:type="pretinet:Arc" name="(SchoolSelection_running->SchoolSelection_finish)" source="//@netElement.2" target="//@netElement.5"/>
+  <netElement xsi:type="pretinet:Arc" name="(SchoolSelection_finish->SchoolSelection_finished)" source="//@netElement.5" target="//@netElement.3"/>
+  <netElement xsi:type="pretinet:Arc" name="(SchoolSelection_start->SchoolSelection_started)" source="//@netElement.4" target="//@netElement.1"/>
+  <netElement xsi:type="pretinet:Place" name="Applying_ready" outArc="//@netElement.17" token="1"/>
+  <netElement xsi:type="pretinet:Place" name="Applying_started" inArc="//@netElement.21"/>
+  <netElement xsi:type="pretinet:Place" name="Applying_running" inArc="//@netElement.18" outArc="//@netElement.19"/>
+  <netElement xsi:type="pretinet:Place" name="Applying_finished" inArc="//@netElement.20"/>
+  <netElement xsi:type="pretinet:Transition" name="Applying_start" inArc="//@netElement.17 //@netElement.24 //@netElement.25 //@netElement.26" outArc="//@netElement.18 //@netElement.21"/>
+  <netElement xsi:type="pretinet:Transition" name="Applying_finish" inArc="//@netElement.19" outArc="//@netElement.20"/>
+  <netElement xsi:type="pretinet:Arc" name="(Applying_ready->Applying_start)" source="//@netElement.11" target="//@netElement.15"/>
+  <netElement xsi:type="pretinet:Arc" name="(Applying_start->Applying_running)" source="//@netElement.15" target="//@netElement.13"/>
+  <netElement xsi:type="pretinet:Arc" name="(Applying_running->Applying_finish)" source="//@netElement.13" target="//@netElement.16"/>
+  <netElement xsi:type="pretinet:Arc" name="(Applying_finish->Applying_finished)" source="//@netElement.16" target="//@netElement.14"/>
+  <netElement xsi:type="pretinet:Arc" name="(Applying_start->Applying_started)" source="//@netElement.15" target="//@netElement.12"/>
+  <netElement xsi:type="pretinet:Place" name="RecommandationLetter" outArc="//@netElement.25" token="4"/>
+  <netElement xsi:type="pretinet:Place" name="ApplicationFee" outArc="//@netElement.24" token="1"/>
+  <netElement xsi:type="pretinet:Arc" name="(ApplicationFee->Applying_start)" source="//@netElement.23" target="//@netElement.15"/>
+  <netElement xsi:type="pretinet:Arc" weigth="3" name="(RecommandationLetter->Applying_start)" source="//@netElement.22" target="//@netElement.15"/>
+  <netElement xsi:type="pretinet:Arc" name="(SchoolSelection_finished->Applying_start)" source="//@netElement.3" target="//@netElement.15" type="readArc"/>
+</pretinet:Net>

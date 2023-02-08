@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simplepdl:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    name="WriteABook">
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.10"
+      linksToSuccessors="//@processElements.5"
+      name="BrainStorming"
+      allocate="//@processElements.11"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToSuccessors="//@processElements.6 //@processElements.10"
+      name="Planning"
+      allocate="//@processElements.12"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.5 //@processElements.6"
+      linksToSuccessors="//@processElements.4"
+      name="Writing"
+      allocate="//@processElements.13"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.4"
+      name="Publishing"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToStart"
+      predecessor="//@processElements.2"
+      successor="//@processElements.3"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToStart"
+      predecessor="//@processElements.0"
+      successor="//@processElements.2"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToStart"
+      predecessor="//@processElements.1"
+      successor="//@processElements.2"/>
+  <processElements
+      xsi:type="simplepdl:Resource"
+      name="Coffee"
+      quantity="4"/>
+  <processElements
+      xsi:type="simplepdl:Resource"
+      name="Computer"
+      quantity="1"/>
+  <processElements
+      xsi:type="simplepdl:Guidance"
+      element="//@processElements.0"
+      text="Etape de Reflexion"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      predecessor="//@processElements.1"
+      successor="//@processElements.0"/>
+  <processElements
+      xsi:type="simplepdl:Allocate"
+      occurence="2"
+      resource="//@processElements.7"
+      allocator="//@processElements.0"/>
+  <processElements
+      xsi:type="simplepdl:Allocate"
+      occurence="2"
+      resource="//@processElements.7"
+      allocator="//@processElements.1"/>
+  <processElements
+      xsi:type="simplepdl:Allocate"
+      occurence="1"
+      resource="//@processElements.8"
+      allocator="//@processElements.2"/>
+</simplepdl:Process>

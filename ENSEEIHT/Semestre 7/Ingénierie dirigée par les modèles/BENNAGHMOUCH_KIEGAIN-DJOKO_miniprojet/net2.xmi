@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pretinet:Net xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pretinet="http://petrinet" name="WriteABook">
+  <netElement xsi:type="pretinet:Place" name="Coffee" outArc="//@netElement.46 //@netElement.47" token="4"/>
+  <netElement xsi:type="pretinet:Place" name="Computer" outArc="//@netElement.48" token="1"/>
+  <netElement xsi:type="pretinet:Place" name="BrainStorming_ready" outArc="//@netElement.8" token="1"/>
+  <netElement xsi:type="pretinet:Place" name="BrainStorming_started" inArc="//@netElement.12"/>
+  <netElement xsi:type="pretinet:Place" name="BrainStorming_running" inArc="//@netElement.9" outArc="//@netElement.10"/>
+  <netElement xsi:type="pretinet:Place" name="BrainStorming_finished" inArc="//@netElement.11" outArc="//@netElement.51"/>
+  <netElement xsi:type="pretinet:Transition" name="BrainStorming_start" inArc="//@netElement.8 //@netElement.46 //@netElement.49" outArc="//@netElement.9 //@netElement.12"/>
+  <netElement xsi:type="pretinet:Transition" name="BrainStorming_finish" inArc="//@netElement.10" outArc="//@netElement.11"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.2" target="//@netElement.6"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.6" target="//@netElement.4"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.4" target="//@netElement.7"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.7" target="//@netElement.5"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.6" target="//@netElement.3"/>
+  <netElement xsi:type="pretinet:Place" name="Planning_ready" outArc="//@netElement.19" token="1"/>
+  <netElement xsi:type="pretinet:Place" name="Planning_started" inArc="//@netElement.23" outArc="//@netElement.49"/>
+  <netElement xsi:type="pretinet:Place" name="Planning_running" inArc="//@netElement.20" outArc="//@netElement.21"/>
+  <netElement xsi:type="pretinet:Place" name="Planning_finished" inArc="//@netElement.22" outArc="//@netElement.52"/>
+  <netElement xsi:type="pretinet:Transition" name="Planning_start" inArc="//@netElement.19 //@netElement.47" outArc="//@netElement.20 //@netElement.23"/>
+  <netElement xsi:type="pretinet:Transition" name="Planning_finish" inArc="//@netElement.21" outArc="//@netElement.22"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.13" target="//@netElement.17"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.17" target="//@netElement.15"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.15" target="//@netElement.18"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.18" target="//@netElement.16"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.17" target="//@netElement.14"/>
+  <netElement xsi:type="pretinet:Place" name="Writing_ready" outArc="//@netElement.30" token="1"/>
+  <netElement xsi:type="pretinet:Place" name="Writing_started" inArc="//@netElement.34"/>
+  <netElement xsi:type="pretinet:Place" name="Writing_running" inArc="//@netElement.31" outArc="//@netElement.32"/>
+  <netElement xsi:type="pretinet:Place" name="Writing_finished" inArc="//@netElement.33" outArc="//@netElement.50"/>
+  <netElement xsi:type="pretinet:Transition" name="Writing_start" inArc="//@netElement.30 //@netElement.48 //@netElement.51 //@netElement.52" outArc="//@netElement.31 //@netElement.34"/>
+  <netElement xsi:type="pretinet:Transition" name="Writing_finish" inArc="//@netElement.32" outArc="//@netElement.33"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.24" target="//@netElement.28"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.28" target="//@netElement.26"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.26" target="//@netElement.29"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.29" target="//@netElement.27"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.28" target="//@netElement.25"/>
+  <netElement xsi:type="pretinet:Place" name="Publishing_ready" outArc="//@netElement.41" token="1"/>
+  <netElement xsi:type="pretinet:Place" name="Publishing_started" inArc="//@netElement.45"/>
+  <netElement xsi:type="pretinet:Place" name="Publishing_running" inArc="//@netElement.42" outArc="//@netElement.43"/>
+  <netElement xsi:type="pretinet:Place" name="Publishing_finished" inArc="//@netElement.44"/>
+  <netElement xsi:type="pretinet:Transition" name="Publishing_start" inArc="//@netElement.41 //@netElement.50" outArc="//@netElement.42 //@netElement.45"/>
+  <netElement xsi:type="pretinet:Transition" name="Publishing_finish" inArc="//@netElement.43" outArc="//@netElement.44"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.35" target="//@netElement.39"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.39" target="//@netElement.37"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.37" target="//@netElement.40"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.40" target="//@netElement.38"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.39" target="//@netElement.36"/>
+  <netElement xsi:type="pretinet:Arc" weigth="2" source="//@netElement.0" target="//@netElement.6"/>
+  <netElement xsi:type="pretinet:Arc" weigth="2" source="//@netElement.0" target="//@netElement.17"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.1" target="//@netElement.28"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.14" target="//@netElement.6" type="readArc"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.27" target="//@netElement.39" type="readArc"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.5" target="//@netElement.28" type="readArc"/>
+  <netElement xsi:type="pretinet:Arc" source="//@netElement.16" target="//@netElement.28" type="readArc"/>
+</pretinet:Net>
