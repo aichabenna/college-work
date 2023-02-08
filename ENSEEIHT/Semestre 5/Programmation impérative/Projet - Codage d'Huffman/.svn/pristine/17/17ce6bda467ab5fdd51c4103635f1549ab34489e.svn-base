@@ -1,0 +1,53 @@
+generic
+	type T_data is private;
+	type T_id is private;
+
+package TREE is
+
+	type T_Tree is limited private;
+
+	-- Initialiser un Tree.
+	procedure Initialize(Tree: out T_Tree) with
+		Post => Is_empty (Tree);
+
+
+	-- Est-ce qu'un arbre est vide ?
+	function Is_Empty (Tree : T_Tree) return Boolean;
+
+   -- Créer une feuille sur un arbre donné
+   procedure Create_Leaf (Tree : out T_Tree ; Id : T_id; Data : T_Data);
+
+   --Créer un noeud avec sa branche de gauche et de droite en entrée sur un arbre
+	procedure Create_Node (Tree : out T_Tree ; left : in  T_Tree; right : in  T_Tree);
+
+   --Retourner la valeur de la clé racine de l'arbre
+   function key (Tree : in T_Tree ) return T_id;
+
+	-- Obtenir le codage de Hauffman d'un caractère/feuille donné (ou d'un noeud)
+	-- Exception : Codage_Absent_Exception si la feuille n'existe pas.
+	function Huffman_Code (Tree : in T_Tree ; Data : in T_data) return Unbounded_String;
+
+
+	procedure Vider (Tree : in out T_Tree) with
+		Post => Est_Vide (Tree);
+
+
+	-- Appliquer un traitement (Traiter) pour chaque Feuille/Noeud d'un arbre.
+	--generic
+		--with procedure Traiter (Id : in T_id; Data: in T_Data);
+	--procedure Pour_Chaque (Tree : in T_Tree);
+
+private
+
+    type T_Node;
+
+    type T_Tree is access T_Node;
+
+    type T_Node is record
+        Left : T_Tree;
+        Right : T_Tree;
+        Data : T_data;
+        id : T_id;
+    end record;
+
+end TREE;

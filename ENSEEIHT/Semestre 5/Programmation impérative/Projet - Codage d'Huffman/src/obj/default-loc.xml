@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>/home/abennagh/1A/pim/CD07/src/default.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/default.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/default.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/default.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/default.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/test_tree.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/default.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/tree.ads</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

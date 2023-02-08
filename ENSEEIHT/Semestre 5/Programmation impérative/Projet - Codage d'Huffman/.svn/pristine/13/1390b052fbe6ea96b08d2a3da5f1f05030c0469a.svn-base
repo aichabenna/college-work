@@ -1,0 +1,159 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with LCA;
+with TREE;
+
+procedure TEST_TREE is
+
+    -- Instanciation du type T_LCA tel que:
+    -- La clé est une chaine de caractères et la donnée est un entier
+    package Tree_String_Integer is
+            new TREE (T_Id => Unbounded_String, T_Data => Integer);
+    use Tree_String_Integer;
+
+    type tab is array (1..100) of Unbounded_String;
+    t : tab ;
+
+    procedure Huffman_Code_bis(Tree : in T_Tree; id: in unbounded_string; t: in out tab; index: in Integer; code : in out unbounded_string) is
+    begin
+        if not is_empty(left (tree)) then
+            t(index) := To_Unbounded_String("0");
+            Huffman_Code_bis(left(tree),id,t, index+1, code);
+        end if;
+        if not is_empty(right (tree)) then
+            t(index) := To_Unbounded_String("1");
+            Huffman_Code_bis(right(tree), id, t, index+1, code);
+        end if;
+        if is_leaf(tree)  then
+            if Tree_String_Integer.id(tree) = id then
+                for i in 1..(index-1) loop
+                    code := code & t(i);
+                end loop;
+
+            end if;
+        end if;
+    end Huffman_code_bis;
+
+    procedure print_tree(Tree: in T_tree; espace : in integer) is
+    begin
+        Put("(");
+        Put(data(tree),1);
+        Put(")");
+        for i in 1..espace loop
+            if espace=1 then
+                New_line;
+                Put("|");
+            end if;
+            Put("    ");
+        end loop;
+
+        if is_leaf(tree)  then
+            Put("'" & To_String(id(tree)) & "'");
+            New_line;
+        end if;
+        if not is_empty(left (tree)) then
+            Put("\--0--");
+            print_tree(left(tree), espace+1);
+        end if;
+        if not is_empty(right (tree)) then
+            Put("\--1--");
+            print_tree(right(tree), espace+1);
+        end if;
+
+    end print_tree;
+
+    tree_1, tree_2, tree_3: T_Tree;
+    tree_4, tree_5: T_Tree;
+    c : unbounded_string :=  To_Unbounded_String("");
+    code : unbounded_string :=  To_Unbounded_String("");
+begin
+    Put_line ("--- test initialize ---");
+    Initialize(tree_1);
+    Initialize(tree_2);
+
+    pragma Assert (Is_Empty (tree_1));
+    pragma Assert (Is_Empty (tree_2));
+
+    Put_line ("--- test create leaf & node ---");
+    Create_Leaf(tree_1, To_Unbounded_String("a"),1);
+    Create_Leaf(tree_2, To_Unbounded_String("b"),2);
+
+    Create_Node(tree_3, tree_1, tree_2, id(tree_1) & id(tree_2), data(tree_1)+data(tree_2)); --supprime tree_2 et ajoute la feuille b dans tree_1
+    pragma Assert (data (tree_3) = 3);
+    pragma Assert (id (tree_3) = "ab");
+
+    Create_Leaf(tree_4, To_Unbounded_String("d"),4);
+
+    Create_Node(tree_5, tree_3, tree_4, id(tree_3) & id(tree_4), data(tree_3)+data(tree_4)); --supprime tree_2 et ajoute la feuille b dans tree_1
+    pragma Assert (data (tree_5) = 7);
+    pragma Assert (id (tree_5) = "abd");
+    print_tree(tree_5, 0);
+
+    Put_line ("--- test parcours_infixe ---");
+    Parcours_Infixe(tree_5);
+    -- pourquoi j'ai les espaces :(((
+    New_line;
+    Put_line("Doit être égale à 0011");
+
+    Put_line ("--- test codage Huffman ---");
+    -- Codage Huffman
+    -- fonction directement dans le fichier test
+    Huffman_Code_bis(tree_5, To_Unbounded_String("a"), t,1 , code);
+    put(To_String(code));
+    new_line;
+    code := To_unbounded_string("");
+    Huffman_Code_bis(tree_5, To_Unbounded_String("b"), t,1, code);
+    put(To_String(code));
+    new_line;
+    code := To_unbounded_string("");
+    Huffman_Code_bis(tree_5, To_Unbounded_String("d"), t,1, code);
+    put(To_string(code));
+    new_line;
+
+    -- fonction 1 : affichage pour debug -- marche
+    put_line(To_string(Huffman_Code(tree_5,To_Unbounded_String("a")))); --00
+    put_line(To_string(Huffman_Code(tree_5,To_Unbounded_String("b"))));-- 00 faux
+    put_line(To_string(Huffman_Code(tree_5,To_Unbounded_String("d"))));-- 00 faux
+
+    -- function 2 : affichage pour debug
+    --Huffman_Code_bis2(Tree : in T_Tree; Id: in T_id; code: in out String; index : in integer) ;
+    code := To_unbounded_string("");
+    c:= Huffman_Code_bis2(tree_5,To_Unbounded_String("d"), code);
+    put_line("ici");
+    Put_line(To_string(c));
+    put_line("ici");
+    put_line(To_string(Huffman_Code_bis2(tree_5,To_Unbounded_String("a"), code) ));
+    put_line ("start");
+    put_line(To_string(code));
+    put_line(To_string(Huffman_Code_bis2(tree_5,To_Unbounded_String("b"), code)) );
+    put_line(To_string(code));
+    put_line("end");
+    put_line(To_string(Huffman_Code_bis2(tree_5,To_Unbounded_String("d"), code))) ;
+
+    -- function 1 : assert
+    pragma Assert (To_string(Huffman_Code(tree_5,To_Unbounded_String("a")) ) = "00");
+    pragma Assert (To_string(Huffman_Code(tree_5,To_Unbounded_String("b") ) )= "01"); -- faux
+    pragma Assert (To_string(Huffman_Code(tree_5,To_Unbounded_String("d")) ) = "1");
+
+    -- function 2 : assert
+    -- later
+
+    -- Affichage du codage Huffman
+    -- function 3
+    --Huffman_Code_bis(tree_5, To_Unbounded_String("a"), l, 1);
+    --Huffman_Code_bis(tree_5, To_Unbounded_String("b"), l, 1);
+    --Huffman_Code_bis(tree_5, To_Unbounded_String("d"), l, 1);
+
+
+
+    free_tree(tree_1);
+    free_tree(tree_2);
+    free_tree(tree_3);
+    free_tree(tree_4);
+    free_tree(tree_5);
+
+    Put_Line(" All tests passed successfuly !");
+
+
+end Test_TREE;

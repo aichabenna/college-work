@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_file>
+    <file_marker column=" 24" line=" 3" >
+      <vfs_project />
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 14" line=" 26" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/tree.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 8" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/test_tree.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 68" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/tree.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 43" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 5" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 43" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 21" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 19" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 44" line=" 20" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 19" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 22" line=" 20" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 43" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 38" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 52" line=" 43" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 19" line=" 9" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/tree.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 17" line=" 46" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 38" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 18" line=" 40" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 38" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 17" line=" 46" >
+      <vfs_project>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/nfoucher2/Documents/Semestre 5/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

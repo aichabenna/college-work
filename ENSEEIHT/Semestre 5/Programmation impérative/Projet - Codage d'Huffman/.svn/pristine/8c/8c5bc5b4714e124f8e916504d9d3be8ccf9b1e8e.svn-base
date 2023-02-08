@@ -1,0 +1,107 @@
+with Ada.Streams.Stream_IO; use Ada.Streams.Stream_IO;
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
+with LCA;
+with TREE;  use TREE;
+
+procedure Compresser is
+
+
+
+   type T_Octet is mod 2 ** 8;	-- sur 8 bits
+   for T_Octet'Size use 8;
+
+   File_Name : String :=  "exemple_fichier.out";
+   File      : Ada.Streams.Stream_IO.File_Type;	-- car il y a aussi Ada.Text_IO.File_Type
+   S         : Stream_Access;
+   Octet     : T_Octet;
+
+
+   package LCA_Integer_Octet is
+            new LCA (T_Cle => T_Octet, T_Donnee => Integer);
+   use LCA_Integer_Octet;
+
+   Liste_Octet : T_LCA;
+
+   package LCA_Integer_Tree is
+            new LCA (T_Cle => T_Tree, T_Donnee => T_Tree);
+   use LCA_Integer_Tree;
+
+   Liste_Tree : T_LCA;
+
+   procedure Afficher (S : in T_Octet; N: in Integer) is
+   begin
+      Put (Character'Val(S));
+      Put (" : ");
+      Put (N);
+      New_Line;
+   end Afficher;
+
+   -- Afficher la Sda
+   procedure Afficher is
+     new Pour_Chaque (Afficher);
+
+   -- initialiser toutes les feuilles
+
+   Procedure To_Leaf(Lca_Leaf : T_LCA ; Lca_Octet : T_LCA) is
+   begin
+      While LCA_Integer_Octet /= null loop
+         Initialiser(LCA_Leaf);
+         Create_Leaf(LCA_Leaf.all.Donnee,LCA_Octet.all.id,LCA_Octet.all.donnee);
+         Enregistrer(LCA_Integer_Tree,i,LCA_Leaf.all.Donnee);
+         To_Leaf(Lca_Leaf.all.suivant,Lca_Octet.all.suivant);
+      end loop;
+
+   end To_Leaf;
+
+   i : Integer := 0;
+
+begin
+
+   -- Erire les premiers octets dans un fichier
+   -- ------------------------------------------
+   --   Créer un fichier en écriture (écrasement si existant)
+   Create (File, Out_File, File_Name);
+
+   --   Ecrire dans le fichier via un Stream
+   --   (on pourrait écrire des données de type différents)
+   S := Stream (File);
+   for I in 0..128 loop
+      T_Octet'Write(S, T_Octet(I));
+      T_Octet'Write(S, T_Octet(2));
+   end loop;
+
+   --   Fermer le fichier
+   Close (File);
+
+
+	--   Ouvrir le fichier en lecture
+   Open(File, In_File, File_Name);
+
+	--   Lire, vérifier et afficher de temps en temps le contenu
+	--   Attention, il faut lire les données dans le même ordre qu'elles ont été écrite.
+ --   Ici, le problème ne se pose pas car il n'y a que des octets.
+
+   Initialiser(Liste_Octet);
+   S := Stream(File);
+   while not End_Of_File(File) loop
+      Octet := T_Octet'Input(S);
+      --
+      if Cle_Presente(Liste_Octet,Octet) then
+         Enregistrer(Liste_Octet,Octet,La_Donnee(Liste_Octet,Octet)+1);
+      else
+         Enregistrer(Liste_Octet,Octet,1);
+      end if;
+
+   end loop;
+
+   Close (File);
+
+   Afficher(Liste_Octet);
+
+   To_Leaf(Lca_Leaf,Lca_Octet);
+
+
+
+
+end Compresser;

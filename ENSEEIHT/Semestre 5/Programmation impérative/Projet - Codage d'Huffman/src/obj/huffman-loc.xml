@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 3" line=" 44" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 66" line=" 112" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/tree.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 13" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/tree.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 3" line=" 44" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 66" line=" 80" >
+      <vfs_project>/home/abennagh/1A/pim/CD07/src/huffman.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/CD07/src/src/test_tree.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

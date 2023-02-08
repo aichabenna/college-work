@@ -1,0 +1,125 @@
+with TREE;
+with LCA;
+
+procedure decompresser is
+    -- Usage: shows how the file should be used
+
+    -- caractères
+    -- parcours infixe
+    -- texte
+
+    procedure Usage is
+	begin
+		New_Line;
+		Put_Line ("Usage : " & Command_Name & "(optional :-b ou --bavard)" & " file_name");
+		New_Line;
+		Put_Line ("   -b ou --bavard  : prints more details");
+		Put_Line ("   file_name : file with extension .hff that you want to decode");
+		New_Line;
+    end Usage;
+
+
+    type T_Octet is mod 2 ** 8;	-- sur 8 bits
+    for T_Octet'Size use 8;
+
+    package LCA_Integer_char is
+            new LCA (T_Cle => Integer, T_Donnee => Character);
+    use LCA_Integer_char;
+
+    package Tree_String_Integer is
+            new TREE (T_Id => Unbounded_String, T_Data => Integer);
+    use Tree_String_Integer;
+
+    procedure huffman_tree ( tree : out T_tree; parcours: in Unbounded_string; LCA_Integer_char.lca : in T_lca) is
+    begin
+        for i in 1..length(parcours) loop
+
+        end loop;
+    end huffman_tree;
+
+
+	File_Name : String :=  "exemple_fichier.out";
+	File      : Ada.Streams.Stream_IO.File_Type;	-- car il y a aussi Ada.Text_IO.File_Type
+	S         : Stream_Access;
+    Octet_Courant, bit     : T_Octet;
+    Octet_Precedent    : T_Octet := 0;
+    lca_char : LCA_Integer_char.T_lca;
+    bavard : Boolean;
+    continue : boolean;
+    parcours_infixe : unbounded_string:= "";
+    i : integer:=0;
+begin
+    if Argument_Count <1 then
+        Usage;
+    else
+        if Argument_Count =1 then
+            File_name := Argument (1);
+        else
+            File_name := Argument (2);
+        end if;
+        bavard := (Argument_Count =2);
+
+        -- Tester si le fichier est bien d'extension .hff (later)
+        -- TO DO
+
+        -- Lire le contenu du fichier
+        -- --------------------------
+        --   Ouvrir le fichier en lecture
+        Open(File, In_File, File_Name);
+
+        --   Lire, vérifier et afficher de temps en temps le contenu
+        --   Attention, il faut lire les donnÃ©es dans le même ordre qu'elles ont été écrite.
+        --   Ici, le problème ne se pose pas car il n'y a que des octets.
+        S := Stream(File);
+        -- characters
+        while not End_Of_File(File) and continue loop
+            Octet := T_Octet'Input(S);
+            if Octet_Precedent \= Octet_Courant then
+                LCA_Integer_char.enregistrer(lca_char, i, To_Character(octet_courant));
+                i:=i+1;
+            else
+                continue : = false;
+            end if;
+        end loop;
+
+        -- parcours infixe
+        continue := true;
+        while not End_Of_File(File) and continue loop
+            Octet := T_Octet'Input(S);
+            if To_character(octet) \= '\n' then
+                for i in 1..8 loop
+                    Bit := Octet / 128;
+                                          parcours_infixe := parcours_infixe & To_Unbounded_String("1");
+                    Octet := (Octet * 2);
+                    if bit = 1 then
+                        parcours_infixe := parcours_infixe & To_Unbounded_String("1");
+                    else
+                        parcours_infixe := parcours_infixe & To_Unbounded_String("0");
+                    end if;
+                end loop;
+            else
+                continue := false;
+            end if;
+        end loop;
+
+        -- construction de l'arbre
+
+
+        --   Fermer le fichier
+        Close (File);
+        -- écrire les premiers octets dans un fichier
+	-- ------------------------------------------
+	--   Créer un fichier en Ã©criture (Ã©crasement si existant)
+	Create (File, Out_File, File_Name);
+
+	--   écrire dans le fichier via un Stream
+	--   (on pourrait écrire des données de type différents)
+	S := Stream (File);
+	for I in 0..128 loop
+		T_Octet'Write(S, T_Octet(I));
+	end loop;
+
+	--   Fermer le fichier
+	Close (File);
+    end if;
+end decompresser;

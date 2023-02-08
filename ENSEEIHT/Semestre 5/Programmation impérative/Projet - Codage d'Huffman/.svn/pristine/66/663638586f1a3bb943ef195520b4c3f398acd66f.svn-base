@@ -1,0 +1,19 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+/home/abennagh/1A/pim/CD07/src/huffman.gpr
+20211207105323 3c0fd674a8fe7d18b9544789ba573d11
+[BOUND OBJECT FILES]
+/home/abennagh/1A/pim/CD07/src/obj/main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-L/home/abennagh/1A/pim/CD07/src/obj/
+-L/home/abennagh/1A/pim/CD07/src/obj/
+-L/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/
+-static
+-static-libgcc
+/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/libgnat.a
+-ldl

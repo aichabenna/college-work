@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_file>
+    <file_marker column=" 1" line=" 66" >
+      <vfs_project>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/tp/tp10/th.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 2" line=" 16" >
+      <vfs_project>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/tp/tp10/th_sujet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 261" >
+      <vfs_project>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/tp/tp10/test_th.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 94" >
+      <vfs_project>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/tp/tp10/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 257" >
+      <vfs_project>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/tp/tp10/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 46" >
+      <vfs_project>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/tp/tp10/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 20" >
+      <vfs_project>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/tp/tp10/th.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 22" line=" 26" >
+      <vfs_project>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/tp/tp10/lca_sujet.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>/home/abennagh/1A/pim/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/abennagh/1A/pim/tp/tp10/exemple_unbounded_string.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

@@ -1,0 +1,55 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with SDA_Exceptions; 	use SDA_Exceptions;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with LCA;
+with TREE;
+
+procedure TEST_TREE is
+   package Huffman_Tree is
+     new TREE (T_data => Unbounded_String, T_id => Integer);
+   use Huffman_Tree;
+
+   tree_1 : T_Tree;
+   tree_2 : T_Tree;
+   tree_3: T_Tree;
+   tree_4: T_Tree;
+
+begin
+
+   Initialize(tree1);
+   Initialize(tree2);
+   Initialize(tree3);
+   Initialize(tree4);
+
+   pragma Assert (Is_Empty (tree_1));
+   pragma Assert (Is_Empty (tree_2));
+   pragma Assert (Is_Empty (tree_3));
+   pragma Assert (Is_Empty (tree_4));
+
+   Create_Leaf(tree_1, "a", 1);
+   Create_Leaf(tree_2, "b", 2);
+   Create_Node(tree_1, tree_2); --supprime tree_2 et ajoute la feuille b dans tree_1
+   pragma Assert (key (tree_1) == 3);
+   pragma Assert  (Is_Empty(tree_2));
+
+
+   Create_Leaf(tree_3, "c", 3);
+   Create_Node(tree_1, tree_3);
+   pragma Assert (key (tree_1) == 6);
+   pragma Assert  (Is_Empty(tree_3));
+
+   Create_Leaf(tree_4, "d", 4);
+   Create_Node(tree_4, tree_1);
+   pragma Assert (key (tree_1) == 10);
+   pragma Assert  (Is_Empty(tree_4));
+
+
+   pragma Assert (Huffman_Code (tree_1, "a") == "100");
+   pragma Assert (Huffman_Code (tree_1, "b") == "101");
+   pragma Assert (Huffman_Code (tree_1, "c") == "11");
+   pragma Assert (Huffman_Code (tree_1, "d") == "0");
+
+
+
+end Test_LCA;

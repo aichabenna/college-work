@@ -1,0 +1,26 @@
+Indiquer vos réponses aux questions de l'exercice 1 du Bilan 2 ci-après : 
+
+[B1.1] Quelle est la portée de chaque variable déclarée ? Pour chaque variable, on donnera le numéro de ligne où commence et se termine sa portée.
+* L8 int n =10; -> portabilité de la ligne 7 à 37
+* L9 int *p= NULL; -> portabilité de la ligne 7 à 37 
+* L13 int a=5; -> portabilité de la ligne 12 à 18
+* L22 int n=7; -> portabilité de la ligne 21 à 25
+* L30 double r=11; -> portabilité de la ligne 29 à 33
+
+[B1.2] Y a-t-il un exemple de masquage de variable dans ce programme ?
+Oui, il y a un exemple de msquage de variable dans ce programme dans le bloc entre les lignes 21 et 25 pour la variable n.
+
+[B1.3] Peut-on savoir ce que devrait afficher l’exécution de ce programme ?
+Non car on ne connaît pas l'adresse de n par exemple.
+
+[B1.4] Même s’il compile sans erreur, ce programme est faux. Pourquoi ?
+
+
+
+
+[B1.5] La valeur de `p` change-t-elle après l’initialisation de la ligne 14 ?
+
+
+
+
+[B1.6] Que se passerait-il si on modifiait `*p` après la ligne 19 ?

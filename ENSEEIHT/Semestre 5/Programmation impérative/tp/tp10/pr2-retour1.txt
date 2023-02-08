@@ -1,0 +1,26 @@
+% Retour personnalisé sur  mini-projet 2 SDA : LCA
+% Auteur : Ismail Mendil
+% Etudiant·e : BENNAGHMOUCH	Aicha
+% Groupe de TP : D
+
+
+
+# Remarques générales:
+## Voir le retour général
+## Voir le retour automatique
+
+* ...
+
+
+
+# Remarques relatives au fichier lca.adb
+## Il faut commenter ton code.
+
+
+# LISEZ-MOI
+## Les idées sont là. Par contre, il faut retravailler tes réponses.
+## Liste et développe chaque avantage et inconvénient. Compare en termes de performance, utilisation mémiore, d'un point de vue programmation, etc.
+## Renseigne ton nom, prénom. et groupe
+## Avantages: Bonne réponse mais ce n'est pas le cas de ton implémentation. Il y a un autre avantage important, il est lié à l'utilisation de la mémoire.
+## inconvénients: Et surtout ça peut introduire des erreure fatales si on ne fait pas attention à la gestion mémoire (fuite mémoire).
+

@@ -1,0 +1,58 @@
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+
+package TREE is
+
+	type T_Tree is limited private;
+
+	-- Initialiser un Tree.
+	procedure Initialize(Tree: out T_Tree) with
+		Post => Is_empty (Tree);
+
+
+	-- Est-ce qu'un arbre est vide ?
+   function Is_Empty (Tree : T_Tree) return Boolean;
+
+   --retourne la branche de droite
+   function right (Tree : in T_Tree) return T_Tree;
+
+   -- Créer une feuille sur un arbre donné
+   procedure Create_Leaf (Tree : in out T_Tree ; Id : in Integer; Data : in Unbounded_String) with
+     Pre => Is_Empty (Tree);
+    -- Post => Tree.all.id = Id and Tree.all.T_Data = Data;
+
+   --Créer un noeud avec deux arbres en entré. Le noeud sera crée sur left et right sera supprimé pour libérer
+   --la mémoire.
+   procedure Create_Node (left : in out T_Tree; right : in out T_Tree) with
+     Post => key(left)=key(left)'old+key(right)'old;
+
+
+   --Retourner la valeur de la clé racine de l'arbre
+   function key (Tree : in T_Tree ) return Integer;
+
+	-- Obtenir le codage de Hauffman de tous les caractères
+	function Huffman_Code (Tree : in T_Tree ; Data : in Unbounded_String) return Unbounded_String;
+
+
+	--procedure Vider (Tree : in out T_Tree) with
+    -- Post => Est_Vide (Tree);
+
+
+	-- Appliquer un traitement (Traiter) pour chaque Feuille/Noeud d'un arbre.
+	--generic
+		--with procedure Traiter (Id : in T_id; Data: in T_Data);
+	--procedure Pour_Chaque (Tree : in T_Tree);
+
+private
+
+    type T_Node;
+
+    type T_Tree is access T_Node;
+
+    type T_Node is record
+        Left : T_Tree;
+        Right : T_Tree;
+        Data : Unbounded_String;
+        id : integer;
+    end record;
+
+end TREE;

@@ -1,0 +1,61 @@
+with TREE;
+with LCA;
+
+procedure decompresser is
+    -- Usage: shows how the file should be used
+    procedure Usage is
+	begin
+		New_Line;
+		Put_Line ("Usage : " & Command_Name & "(optional :-b ou --bavard)" & " file_name");
+		New_Line;
+		Put_Line ("   -b ou --bavard  : prints more details");
+		Put_Line ("   file_name : file with extension .hff that you want to decode");
+		New_Line;
+    end Usage;
+
+    package Tree_String_Integer is
+            new TREE (T_Id => Unbounded_String, T_Data => Integer);
+    use Tree_String_Integer;
+    type T_Octet is mod 2 ** 8;	-- sur 8 bits
+	for T_Octet'Size use 8;
+
+	File_Name : String :=  "exemple_fichier.out";
+	File      : Ada.Streams.Stream_IO.File_Type;	-- car il y a aussi Ada.Text_IO.File_Type
+	S         : Stream_Access;
+    Octet     : T_Octet;
+    bavard : Boolean;
+begin
+    if Argument_Count <1 then
+        Usage;
+    else
+        if Argument_Count =1 then
+            File_name := Argument (1);
+        else
+            File_name := Argument (2);
+        end if;
+        bavard := (Argument_Count =2);
+
+        -- Tester si le fichier est bien d'extension .hff (later)
+        -- TO DO
+
+        -- Lire le contenu du fichier
+        -- --------------------------
+        --   Ouvrir le fichier en lecture
+        Open(File, In_File, File_Name);
+
+        --   Lire, vÃ©rifier et afficher de temps en temps le contenu
+        --   Attention, il faut lire les donnÃ©es dans le mÃªme ordre qu'elles ont Ã©tÃ© Ã©crite.
+        --   Ici, le problÃ¨me ne se pose pas car il n'y a que des octets.
+        S := Stream(File);
+        while not End_Of_File(File) loop
+            Octet := T_Octet'Input(S);
+            Put("Octet = " & T_Octet'Image(Octet));
+            Put(" '" & Character'Val(Octet) & "'");
+            New_Line;
+        end loop;
+
+        --   Fermer le fichier
+        Close (File);
+
+    end if;
+end decompresser;

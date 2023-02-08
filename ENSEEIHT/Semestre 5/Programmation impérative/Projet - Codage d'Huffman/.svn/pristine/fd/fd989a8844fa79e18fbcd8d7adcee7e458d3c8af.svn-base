@@ -1,0 +1,75 @@
+with Ada.Text_IO;            use Ada.Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with Ada.Unchecked_Deallocation;
+
+package body TREE is
+
+   procedure Free is
+     new Ada.Unchecked_Deallocation (Object => T_Node, Name => T_Tree);
+
+
+   procedure Initialize(Tree: out T_Tree) is
+   begin
+      Tree:=NULL;
+   end Initialize;
+
+   function Is_Empty (Tree : T_Tree) return Boolean is
+   begin
+      return Tree=NULL;
+   end Is_Empty;
+
+
+   procedure Create_Leaf (Tree : in out T_Tree ; Id : in Integer; Data :in Unbounded_String) is
+   begin
+      Tree := new T_Node'(null,null,Data,Id);
+   end Create_Leaf;
+
+   procedure Create_Node (left : in out T_Tree; right : in out T_Tree) is
+   begin
+      left := new T_Node'(left,right,To_Unbounded_String("empty"),left.all.id + Right.all.id);
+   end Create_Node;
+
+   function key (Tree : in T_Tree ) return Integer is
+   begin
+      return Tree.all.id;
+   end key;
+
+   function right (Tree : in T_Tree) return T_Tree is
+   begin
+      return Tree.all.right;
+   end right;
+
+
+   function Huffman_Code (Tree : in T_Tree ; Data : in Unbounded_String) return Unbounded_String is
+      left_code : Unbounded_String ;
+      right_code : Unbounded_String  ;
+   begin
+
+      --cas final
+
+      if Tree.left.all.data = Data then
+         return To_Unbounded_String("0");
+      elsif Tree.right.all.data = Data then
+         return To_Unbounded_String("1");
+      end if;
+
+      --pour la recherche
+
+      left_code := Huffman_Code(Tree.all.left, Data);
+      if left_code /= To_Unbounded_String("wrong") then
+         return To_Unbounded_String("0") & left_code ;
+      end if;
+
+      right_code := Huffman_Code(Tree.all.right, Data);
+      if right_code /= To_Unbounded_String("wrong") then
+         return To_Unbounded_String("1") & right_code ;
+      end if;
+
+      -- Not on that branch ?
+      return To_Unbounded_String("wrong");
+
+   end Huffman_Code;
+
+
+
+   end TREE;

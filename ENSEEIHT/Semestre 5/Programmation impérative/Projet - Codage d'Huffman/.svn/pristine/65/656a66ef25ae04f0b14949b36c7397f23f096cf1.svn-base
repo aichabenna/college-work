@@ -1,0 +1,188 @@
+with Ada.Text_IO;            use Ada.Text_IO;
+with Ada.Integer_Text_IO;            use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with Ada.Unchecked_Deallocation;
+
+package body TREE is
+
+   procedure Free is
+     new Ada.Unchecked_Deallocation (Object => T_Node, Name => T_Tree);
+
+
+   procedure Initialize(Tree: out T_Tree) is
+   begin
+      Tree:=NULL;
+   end Initialize;
+
+   function Is_Empty (Tree : T_Tree) return Boolean is
+   begin
+      return Tree=NULL;
+   end Is_Empty;
+
+    function Is_Leaf (Tree : T_Tree) return Boolean is
+    begin
+        if Is_Empty(tree) then
+            return false;
+        end if;
+        return tree.all.Left = null and tree.all.right = null;
+    end Is_Leaf;
+
+    -- precondition : not is_empty(tree) ?
+    function id( Tree :  T_Tree) return T_Id is
+    begin
+        return tree.all.id;
+    end id;
+
+    -- precondition : not is_empty(tree) ?
+    function data(Tree : T_Tree) return T_Data is
+    begin
+        return tree.all.data;
+    end data;
+
+    -- precondition : not is_empty(tree) ?
+    function right (Tree : in T_Tree) return T_Tree is
+    begin
+        return tree.all.right;
+    end right;
+
+
+    function left (Tree : in T_Tree) return T_Tree is
+    begin
+        return tree.all.left;
+    end left;
+
+    procedure Create_Node (Tree : out T_tree; left :  in T_Tree; right : in T_Tree; id : in T_id; data: in T_data ) is
+    begin
+      Tree := new T_Node'(left,right,data, id);
+    end Create_Node;
+
+    procedure Create_Leaf (Tree : out T_Tree ; Id : in T_id; Data :in T_data) is
+    begin
+        Tree := new T_Node'(null,null,Data,Id);
+    end Create_Leaf;
+
+    -- postcondition : not is_empty(tree)
+    -- pas sure de ce code
+    function Huffman_Code (Tree : in T_Tree ; Id :in T_id) return Unbounded_String is
+    begin
+        if tree.all.Left = null and tree.all.right = null and tree.all.id = id  then
+            return To_Unbounded_String ("") ;
+        end if;
+        if not is_empty(left (tree)) then
+            return (To_Unbounded_String("0") &  Huffman_Code(tree.all.left, id));
+        end if;
+        if not is_empty(right (tree)) then
+            return (To_Unbounded_String("1") &  Huffman_Code(tree.all.right, id)) ;
+        end if;
+
+        return To_Unbounded_String ("") ;
+
+    end Huffman_Code;
+
+    -- autre version
+    function Huffman_Code_bis2(Tree : in T_Tree; Id: in T_id; code: in out Unbounded_String) return Unbounded_String is
+    begin
+        if tree.all.Left = null and tree.all.right = null and tree.all.id = id  then
+            return code ;
+        --else
+            --code := To_Unbounded_String("");
+        end if;
+        if not is_empty(left (tree)) then
+            code := code & To_Unbounded_String("0");
+            return Huffman_Code_bis2(tree.all.left, id, code);
+        end if;
+        if not is_empty(right (tree)) then
+            code := code & To_Unbounded_String("1");
+            return Huffman_Code_bis2(tree.all.right, id, code);
+        end if;
+        return code ;
+    end HUFFMAN_CODE_BIS2;
+
+    -- celle qui affiche directement
+    procedure Huffman_Code_bis(Tree : in T_Tree; Id: in T_id; t: in out code; index: in Integer) is
+    begin
+        if not is_empty(left (tree)) then
+            t(index) := 0;
+            Huffman_Code_bis(tree.all.left, id, t, index+1);
+        end if;
+        if not is_empty(right (tree)) then
+            t(index) := 1;
+            Huffman_Code_bis(tree.all.right, id, t, index+1);
+        end if;
+        if tree.all.Left = null and tree.all.right = null and (tree.all.id = Id) then
+            for i in 1..index loop
+                Put (t(i));
+            end loop;
+        end if;
+    end Huffman_code_bis;
+
+
+
+
+    procedure Parcours_Infixe( Tree : in T_Tree) is
+    begin
+        if not is_empty(left (tree)) then
+            put( 0,1);
+            Parcours_Infixe(tree.all.left);
+        end if;
+        if not is_empty(right (tree)) then
+            put (1,1);
+            Parcours_Infixe(tree.all.right);
+        end if;
+        if is_leaf(tree) then
+            Put ("");
+        end if;
+    end Parcours_Infixe;
+    -- not is_empty(Tree)
+    procedure Free_Tree (Tree : in out T_Tree) is
+    begin
+
+        if is_leaf(tree) then
+            Free(Tree);
+        end if;
+        if not is_empty(left (tree)) then
+            Free_tree(tree.all.left);
+        end if;
+        if not is_empty(right (tree)) then
+            Free_tree(tree.all.right);
+        end if;
+   end Free_Tree;
+
+
+
+
+
+
+   --function Huffman_Code (Tree : in T_Tree ; Data : in Unbounded_String) return Unbounded_String is
+   --   left_code : Unbounded_String ;
+   --   right_code : Unbounded_String  ;
+   --begin
+
+      --cas final
+
+    --  if Tree.left.all.data = Data then
+    --   return To_Unbounded_String("0");
+    --  elsif Tree.right.all.data = Data then
+    --     return To_Unbounded_String("1");
+    --  end if;
+
+      --pour la recherche
+
+      --left_code := Huffman_Code(Tree.all.left, Data);
+      --if left_code /= To_Unbounded_String("wrong") then
+      --   return To_Unbounded_String("0") & left_code ;
+      --end if;
+
+      --right_code := Huffman_Code(Tree.all.right, Data);
+      --if right_code /= To_Unbounded_String("wrong") then
+      --   return To_Unbounded_String("1") & right_code ;
+      --end if;
+
+      -- Not on that branch ?
+      --return To_Unbounded_String("wrong");
+
+   --end Huffman_Code;
+
+
+
+   end TREE;

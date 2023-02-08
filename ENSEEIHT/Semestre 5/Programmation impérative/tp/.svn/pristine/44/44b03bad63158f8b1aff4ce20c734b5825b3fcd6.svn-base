@@ -1,0 +1,22 @@
+1- Les fichiers .ads correspondent à la spécification.
+ - Les fichiers .adb correspondent à l'implémentation du corps des sous-programmes.
+
+ 2- Il n'y a pas de commentaires devant ces sous-programmes parce que leurs spécifications ont déjà été écrites dans le fichier dates.ads
+ 
+ 3- La sémantique de ce sous-programmes est donnée dans dates.adb parce que celui-ci ne figure pas parmi les sous-programmes impléméntés pour manipuler les dates. Afficher_Deux_Positions est un sous-programmes utilisant les sous-programmes du module Dates.
+
+ 4- L'utilisateur peut utiliser du module Dates:
+        - Les  procédures Initialiser et Afficher
+        - Les fonctions Le_Mois, Le_Jour, L'Annee
+        - Le type T_Date mais pas son impléméntation (son contenu)
+
+5- Instructions refusées:
+-Ligne 19: Le compilateur ne reconnaît pas la fonction Afficher_Deux_Positions parce qu'elle n'est pas définie dans la spécification du module dates.ads
+-Ligne 30: Le type T_Date étant défini "private" dans dates.ads, on ne peut accéder à ces champs directement mais plutôt en utilisant les fonctions définis dans la spécification. 
+-Ligne 31: Même justification
+
+6- Le type T_Mois est utilisé sans la définition du type T_Date.(à reformuler)
+
+7- Cette modification ne nous permettra pas d'affecter des variables de types T_Dates ni d'effectuer des opérations de tests sur des éléments de ce type(=).
+
+En effet, en compilant le fichier exemple_dates_erreurs.adb, on trouve des erreurs dans la ligne 36 et 41.

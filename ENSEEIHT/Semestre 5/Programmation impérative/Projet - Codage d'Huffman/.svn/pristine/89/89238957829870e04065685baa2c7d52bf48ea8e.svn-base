@@ -1,0 +1,74 @@
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+
+generic
+    type T_Id is private;
+	type T_Data is private;
+
+package TREE is
+
+    type T_Tree is limited private;
+
+    type code is array (1..100) of Integer;
+
+	-- Initialiser un Tree.
+    procedure Initialize(Tree: out T_Tree) with
+		Post => Is_empty (Tree);
+
+	-- Est-ce qu'un arbre est vide ?
+    function Is_Empty (Tree : T_Tree) return Boolean;
+
+    function Is_Leaf (Tree : T_Tree) return Boolean;
+
+    function id( Tree :  T_Tree) return T_Id;
+
+    function data(Tree : T_Tree) return T_Data;
+
+    function right (Tree : in T_Tree) return T_Tree;
+
+    function left (Tree : in T_Tree) return T_Tree;
+
+
+
+   --Créer un noeud avec deux arbres en entré. Le noeud sera crée sur left et right sera supprimé pour libérer
+   --la mémoire.
+    procedure Create_Node (Tree : out T_tree; left :  in T_Tree; right : in T_Tree; id : in T_id; data: in T_data ) ;
+    --Post => key(left)=key(left)'old+key(right)'old;
+
+   -- Créer un arbre constitué d'une seule feuille
+    procedure Create_Leaf (Tree : out T_Tree ; Id : in T_id; Data : in T_data);
+     --Pre => Is_Empty (Tree);
+    -- Post => Tree.all.id = Id and Tree.all.T_Data = Data;
+    -- Obtenir le codage de Hauffman de tous les caractères
+    -- on peut : soit renvoyer le codage d'une clé (caractère) donnée :
+    --           il faut savoir manipuler le module unbounded string comme les fcts append ou &
+    --           soit l'afficher directement en utilisant un tableau (je suis plutôt pour celle-là)
+    --           soit afficher le codage huffman de tous les clés à la fois
+            --  ( petit problème : on devra afficher la clé et du coup il faut qu'on sache le type de la clé ) donc non!
+    function Huffman_Code (Tree : in T_Tree ; Id : in T_id) return Unbounded_String;
+    -- celle qui affiche directement
+    procedure Huffman_Code_bis(Tree : in T_Tree; Id: in T_id; t: in out code; index: in Integer);
+
+    procedure Parcours_Infixe( Tree : in T_Tree) ;
+
+	procedure Free_Tree (Tree : in out T_Tree) ;
+    -- Post => Est_Vide (Tree);
+
+    -- Autres propositions de fonctions pouvant être utiles:
+    -- taille
+    -- clé_presente
+    --
+
+private
+
+    type T_Node;
+
+    type T_Tree is access T_Node;
+
+    type T_Node is record
+        Left : T_Tree;
+        Right : T_Tree;
+        Data : T_data;
+        id : T_id;
+    end record;
+
+end TREE;

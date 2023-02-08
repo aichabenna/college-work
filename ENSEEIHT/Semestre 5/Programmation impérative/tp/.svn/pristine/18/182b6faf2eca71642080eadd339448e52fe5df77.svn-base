@@ -1,0 +1,98 @@
+% Validation de http://hpxc/cregut.svn.enseeiht.fr/2021/1sn/pim/tps/abennagh/tp10
+% Run on 2021-11-20 14:19:03.483072
+
+
+################################################################################
+# Modification des fichiers fournis
+################################################################################
+
+
+================================================================================
+## Fichiers qui NE devaient PAS être modifiés
+================================================================================
+
+* Fichier alea.adb non modifié... ok
+* Fichier alea.ads non modifié... ok
+* Fichier exemple_alea.adb non modifié... ok
+* Fichier exemple_unbounded_string.adb non modifié... ok
+* Fichier sda_exceptions.ads non modifié... ok
+* Fichier test_lca.adb non modifié... ok
+
+================================================================================
+## Fichiers qui DEVAIENT être modifiés
+================================================================================
+
+* Fichier lca_sujet.adb modifié... ok
+* Fichier lca.ads modifié... ok
+* Fichier lca.adb modifié... ok
+
+
+################################################################################
+# Nettoyer
+################################################################################
+
+* Running gnatclean... ok
+
+
+################################################################################
+# Exercice 1
+################################################################################
+
+
+================================================================================
+## Modifications de lca.ads
+================================================================================
+
+* Comparaison de lca.ads et fournis/lca.ads... différents
+
+   | -- AVEC_AFFICHER_DEBUG START DELETE                                                                <
+   |         -- Afficher la Sda en révélant sa structure interne.                                       <
+   |         --generic                                                                                  <
+   |         --      with procedure Afficher_Cle (Cle : in T_Cle);                                      <
+   |         --      with procedure Afficher_Donnee (Donnee : in T_Donnee);                             <
+   |         -- procedure Afficher_Debug (Sda : in T_LCA);                                              <
+   |                                                                                                    <
+   |                                                                                                    <
+   | -- AVEC_AFFICHER_DEBUG STOP DELETE                                                                 <
+   |     type T_Cellule;                                                                                <
+   |     type T_LCA is access T_Cellule;                                                                <
+   |                                                                                                    <
+   |     type T_Cellule is record                                                                       <
+   |         Cle: T_Cle;                                                                                <
+   |         Donnee: T_Donnee;                                                                          <
+   |         Suivant: T_LCA;                                                                            <
+   |     end record;                                                                                    <
+
+
+================================================================================
+## Exécution de lca_sujet.adb
+================================================================================
+
+* Compilation de lca_sujet.adb... ok
+
+  | lca_sujet.adb:3:06: warning: no entities of "SDA_Exceptions" are referenced
+  | lca_sujet.adb:3:33: warning: use clause for package "SDA_Exceptions" has no effect
+
+* ./lca_sujet... ok
+* valgrind ./lca_sujet... ok
+
+================================================================================
+## Exécution de test_lca.adb
+================================================================================
+
+* Compilation de test_lca.adb... ok
+
+  | test_lca.adb:257:17: warning: variable "Inutile" is assigned but never read
+  | test_lca.adb:280:35: warning: formal parameter "Cle" is not referenced
+
+* ./test_lca... ok
+* valgrind ./test_lca... ok
+
+
+################################################################################
+# Nettoyer
+################################################################################
+
+* Running gnatclean... ok
+
+<!-- vi: set ts=8: -->

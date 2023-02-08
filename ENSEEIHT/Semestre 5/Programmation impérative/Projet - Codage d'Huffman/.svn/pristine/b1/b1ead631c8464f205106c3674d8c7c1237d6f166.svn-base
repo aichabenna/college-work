@@ -1,0 +1,110 @@
+with Ada.Streams.Stream_IO; use Ada.Streams.Stream_IO;
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
+with LCA;
+with TREE;
+
+procedure Compresser is
+
+   type T_Octet is mod 2 ** 8;	-- sur 8 bits
+   for T_Octet'Size use 8;
+
+   File_Name : String :=  "exemple_fichier.out";
+   File      : Ada.Streams.Stream_IO.File_Type;	-- car il y a aussi Ada.Text_IO.File_Type
+   S         : Stream_Access;
+   Octet     : T_Octet;
+
+
+
+   package Tree_Octet_Integer is
+     new TREE (T_Id => T_Octet, T_Data => Integer);
+   use Tree_Octet_Integer;
+
+   package LCA_Integer_Octet is
+            new LCA (T_Cle => T_Octet, T_Donnee => Integer);
+   use LCA_Integer_Octet;
+
+      package LCA_Integer_Tree is
+            new LCA (T_Cle => Integer, T_Donnee => T_Tree);
+   use LCA_Integer_Tree;
+
+    Procedure To_leaf(Liste_Tree : out LCA_Integer_Tree.T_Lca ; Liste_Octet : in LCA_Integer_Octet.T_Lca) is
+      i : integer := 1;
+      Leaf : T_Tree ;
+   begin
+      if not Est_Vide(Liste_Octet) then
+         Create_Leaf(Leaf,La_Cle(Liste_Octet),La_Donnee(Liste_Octet,La_Cle(Liste_Octet)));
+         Enregistrer(Liste_Tree,i,Leaf);
+         i:=i+1;
+         To_Leaf(Liste_Tree,Suivant(Liste_Octet));
+      end if;
+   end To_leaf;
+
+   Liste_Octet : LCA_Integer_Octet.T_LCA;
+   Liste_Tree : LCA_Integer_Tree.T_LCA;
+
+
+   procedure Afficher (S : in T_Octet; N: in Integer) is
+   begin
+      Put (Character'Val(S));
+      Put (" : ");
+      Put (N);
+      New_Line;
+   end Afficher;
+
+   -- Afficher la Sda
+   procedure Afficher is
+     new LCA_Integer_Octet.Pour_Chaque (Afficher);
+begin
+
+   -- Erire les premiers octets dans un fichier
+   -- ------------------------------------------
+   --   Créer un fichier en écriture (écrasement si existant)
+   Create (File, Out_File, File_Name);
+
+   --   Ecrire dans le fichier via un Stream
+   --   (on pourrait écrire des données de type différents)
+   S := Stream (File);
+   for I in 0..128 loop
+      T_Octet'Write(S, T_Octet(I));
+      T_Octet'Write(S, T_Octet(2));
+   end loop;
+
+   --   Fermer le fichier
+   Close (File);
+
+
+	--   Ouvrir le fichier en lecture
+   Open(File, In_File, File_Name);
+
+	--   Lire, vérifier et afficher de temps en temps le contenu
+	--   Attention, il faut lire les données dans le même ordre qu'elles ont été écrite.
+ --   Ici, le problème ne se pose pas car il n'y a que des octets.
+
+   Initialiser(Liste_Octet);
+   S := Stream(File);
+   while not End_Of_File(File) loop
+      Octet := T_Octet'Input(S);
+      --
+      if Cle_Presente(Liste_Octet,Octet) then
+         Enregistrer(Liste_Octet,Octet,La_Donnee(Liste_Octet,Octet)+1);
+      else
+         Enregistrer(Liste_Octet,Octet,1);
+      end if;
+
+   end loop;
+
+
+
+   Close (File);
+
+   Afficher(Liste_Octet);
+
+   To_leaf(Liste_Tree,Liste_Octet);
+
+
+
+
+
+end Compresser;

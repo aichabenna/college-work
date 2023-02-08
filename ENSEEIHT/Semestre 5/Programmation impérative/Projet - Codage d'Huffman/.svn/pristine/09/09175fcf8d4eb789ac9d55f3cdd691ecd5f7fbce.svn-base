@@ -1,0 +1,70 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with LCA;
+with TREE; use TREE;
+
+procedure TEST_TREE is
+
+   tree_1 : T_Tree;
+   tree_2 : T_Tree;
+   tree_3: T_Tree;
+   tree_4: T_Tree;
+
+begin
+
+   Initialize(tree_1);
+   Initialize(tree_2);
+   Initialize(tree_3);
+   Initialize(tree_4);
+
+   pragma Assert (Is_Empty (tree_1));
+   pragma Assert (Is_Empty (tree_2));
+   pragma Assert (Is_Empty (tree_3));
+   pragma Assert (Is_Empty (tree_4));
+
+   Create_Leaf(tree_1, 1, To_Unbounded_String("a"));
+
+   Create_Leaf(tree_2, 2, To_Unbounded_String("b"));
+   Create_Node(tree_1, tree_2); --supprime tree_2 et ajoute la feuille b dans tree_1
+   pragma Assert (key (tree_1) = 3);
+
+   Create_Leaf(tree_3, 3, To_Unbounded_String("c"));
+   Create_Node(tree_1, tree_3);
+   pragma Assert (key (tree_1) = 6);
+
+
+   Create_Leaf(tree_4, 4, To_Unbounded_String("d"));
+   Create_Node(tree_4, tree_1);
+  -- pragma Assert (key (tree_4) = 10.0);
+   --pragma Assert (key(right(tree_4)) = 4.0);
+
+   put("code d");
+   New_Line;
+   put(Ada.Strings.Unbounded.To_String(Huffman_Code(tree_4, To_Unbounded_String("d"))));
+   New_Line;
+
+   put("code c");
+   New_Line;
+   put(Ada.Strings.Unbounded.To_String(Huffman_Code(tree_4, To_Unbounded_String("c"))));
+   New_Line;
+
+   put("code b");
+   New_Line;
+   put(Ada.Strings.Unbounded.To_String(Huffman_Code(tree_1, To_Unbounded_String("b"))));
+   New_Line;
+
+   put("code a");
+   New_Line;
+   put(Ada.Strings.Unbounded.To_String(Huffman_Code(tree_1, To_Unbounded_String("a"))));
+   New_Line;
+
+
+   pragma Assert (Huffman_Code (tree_1, To_Unbounded_String("a")) = To_Unbounded_String("100"));
+   pragma Assert (Huffman_Code (tree_1, To_Unbounded_String("b")) = To_Unbounded_String("101"));
+   pragma Assert (Huffman_Code (tree_1, To_Unbounded_String("c")) = To_Unbounded_String("11"));
+   pragma Assert (Huffman_Code (tree_1, To_Unbounded_String("d")) = To_Unbounded_String("1"),"ça marche po");
+   Put("Tous les test sont successfull !");
+
+
+end Test_TREE;

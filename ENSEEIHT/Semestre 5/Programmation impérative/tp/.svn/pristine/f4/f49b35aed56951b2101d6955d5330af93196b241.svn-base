@@ -1,0 +1,15 @@
+1- Les commentaires de spécification n'apparaissent que dans la spécification du module et pas dans son implémentation parce que l'utilisateur n'a accès à la spécification du module qui contient la description suffisante pour son utilisation.
+
+2-Les contrats sont formalisés dans la spécification du module, ici "piles.ads". Elle consiste en la sémantique et les pré et post conditions.
+
+3- On sait que le module Piles est générique par le mot clé "generic" au début du fichier de spécification.
+ - Les paramètres de générécité sont "Capacite", le type d'éléments de la pile "T_Element" et la procédure Afficher.
+ - Pour utiliser le module Piles, il faut l'instancier et l'initialiser.
+
+ 4- Il faut définir un sous-programme spécifique au module Piles et sa documentation dans le fichier "piles.adb".
+
+ 5- La surchage, c'est pouvoir utiliser le même nom de sous-programme pour plusieurs sous-programmes distincts. Ici le sous-programme Afficher instancié différemment.
+
+ 6- La procédure Afficher_Element n’est pas un paramètre de généricité du module Piles mais de sa procédure Afficher parce que dans la spécification du module Afficher_Element est définie comme la manière avec laquelle la procédure Afficher affichera la pile (le mode d'affichage) qui est passé en paramètre de cette procédure par exemple Afficher et Put.
+
+ 7- 

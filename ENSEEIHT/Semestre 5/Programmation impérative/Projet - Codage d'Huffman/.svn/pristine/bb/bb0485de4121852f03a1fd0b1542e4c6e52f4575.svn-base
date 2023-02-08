@@ -1,0 +1,44 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with SDA_Exceptions; 	use SDA_Exceptions;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with LCA;
+with TREE;
+
+procedure TEST_TREE is
+    package Huffman_Tree is
+            new TREE (T_data => Unbounded_String, T_id => Integer);
+    use Huffman_Tree;
+
+    tree_ab : T_Tree;
+    tree_abc : T_Tree;
+    tree_a: T_Tree;
+    tree_b: T_Tree;
+    tree_c: T_Tree;
+
+begin
+
+    Initialize(tree_abc);
+    Initialize(tree_ab);
+    pragma Assert (Is_Empty (tree_ab));
+    Initialize(tree_a);
+    Initialize(tree_b);
+    Initialize(tree_c);
+
+    Create_Leaf(tree_a, "a", 1);
+    Create_Leaf(tree_b, "b", 2);
+
+    Create_Node(tree_ab, tree_a, tree_b);
+    pragma Assert (key (tree_ab) == 3);
+
+    Create_Leaf(tree_c, "c", 3);
+
+    Create_Node(tree_abc, tree_ab, tree_c);
+    pragma Assert (key (tree_abc) == 6);
+
+    pragma Assert (Huffman_Code (tree_abc, "a") == "00");
+    pragma Assert (Huffman_Code (tree_abc, "b") == "01");
+    pragma Assert (Huffman_Code (tree_abc, "c") == "1");
+
+
+end Test_LCA;
