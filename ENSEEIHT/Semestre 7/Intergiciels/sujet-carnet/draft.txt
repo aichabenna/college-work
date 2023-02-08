@@ -1,0 +1,35 @@
+public RFiche Consulter(String n, boolean forward) throws RemoteException{
+        int numAutreCarnet = (-1)*this.numCarnet +3;
+        String nac = Integer.toString(numAutreCarnet);
+        if (this.Fiche.containsKey(n)) {
+            return this.Fiche.get(n);
+        } else {
+            if (forward) {
+                Naming.lookup("Carnet."+nac+"Consulter("+n+", false");
+            } else {
+                return null;
+            }
+        }
+    }
+    public RFiche Consulter(String n, boolean forward) throws RemoteException {
+        RFiche tmp = agenda.get(n);
+        if (tmp == null && forward) {
+            if (other == null) {
+                try {
+                    other = (Carnet) Naming.lookup("//localhost/carnet" + (this.nCarnet % 2) + 1);
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                }
+            } else {
+                tmp = other.Consulter(n, false);
+            }
+
+        } else {
+            if (tmp == null) {
+                return null;
+            } else {
+                return tmp;
+            }
+        }
+        return null;
+    }
