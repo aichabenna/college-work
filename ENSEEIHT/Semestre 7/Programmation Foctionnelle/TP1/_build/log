@@ -1,0 +1,130 @@
+# dune utop
+# OCAMLPARAM: unset
+# Workspace root: "/mnt/c/Users/aicha/Desktop/2A SN - L/Prog Fonctionnelle/TP1"
+$ /usr/bin/nproc > /tmp/dune2709b1.output 2> /dev/null
+# Auto-detected concurrency: 8
+# disable binary cache
+$ /usr/bin/ocamlc.opt -config > /tmp/dunecef038.output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dyn
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = "default"
+#  ; toplevel_path = None
+#  ; ocaml_bin = External "/usr/bin"
+#  ; ocaml = External "/usr/bin/ocaml"
+#  ; ocamlc = External "/usr/bin/ocamlc.opt"
+#  ; ocamlopt = Some External "/usr/bin/ocamlopt.opt"
+#  ; ocamldep = External "/usr/bin/ocamldep.opt"
+#  ; ocamlmklib = External "/usr/bin/ocamlmklib.opt"
+#  ;
+#  env =
+#    map
+#      {
+#      "CAML_LD_LIBRARY_PATH" :
+#        "/mnt/c/Users/aicha/Desktop/2A SN - L/Prog Fonctionnelle/TP1/_build/install/default/lib/stublibs"
+#      ; "DUNE_CONFIGURATOR" : "/usr/bin/ocamlc.opt"
+#      ; "INSIDE_DUNE" : "1"
+#      ;
+#      "MANPATH" :
+#        "/mnt/c/Users/aicha/Desktop/2A SN - L/Prog Fonctionnelle/TP1/_build/install/default/bin"
+#      ;
+#      "OCAMLFIND_IGNORE_DUPS_IN" :
+#        "/mnt/c/Users/aicha/Desktop/2A SN - L/Prog Fonctionnelle/TP1/_build/install/default/lib"
+#      ;
+#      "OCAMLPATH" :
+#        "/mnt/c/Users/aicha/Desktop/2A SN - L/Prog Fonctionnelle/TP1/_build/install/default/lib"
+#      ; "OCAML_COLOR" : "always"
+#      ; "OPAMCOLOR" : "always"
+#      }
+#  ; findlib_path = [ External "/usr/lib/ocaml" ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; opam_vars = map {}
+#  ;
+#  ocaml_config =
+#    { version = "4.08.1"
+#    ; standard_library_default = "/usr/lib/ocaml"
+#    ; standard_library = "/usr/lib/ocaml"
+#    ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#    ; ccomp_type = "cc"
+#    ; c_compiler = "x86_64-linux-gnu-gcc"
+#    ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-fPIC" ]
+#    ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#    ;
+#    bytecomp_c_compiler =
+#      [ "x86_64-linux-gnu-gcc"
+#      ; "-O2"
+#      ; "-fno-strict-aliasing"
+#      ; "-fwrapv"
+#      ; "-fPIC"
+#      ; "-D_FILE_OFFSET_BITS=64"
+#      ; "-D_REENTRANT"
+#      ]
+#    ; bytecomp_c_libraries = [ "-lm"; "-ldl"; "-lpthread" ]
+#    ;
+#    native_c_compiler =
+#      [ "x86_64-linux-gnu-gcc"
+#      ; "-O2"
+#      ; "-fno-strict-aliasing"
+#      ; "-fwrapv"
+#      ; "-D_FILE_OFFSET_BITS=64"
+#      ; "-D_REENTRANT"
+#      ]
+#    ; native_c_libraries = [ "-lm"; "-ldl" ]
+#    ; cc_profile = [ "-pg" ]
+#    ; architecture = "amd64"
+#    ; model = "default"
+#    ; int_size = 63
+#    ; word_size = 64
+#    ; system = "linux"
+#    ; asm = [ "x86_64-linux-gnu-as" ]
+#    ; asm_cfi_supported = true
+#    ; with_frame_pointers = false
+#    ; ext_exe = ""
+#    ; ext_obj = ".o"
+#    ; ext_asm = ".s"
+#    ; ext_lib = ".a"
+#    ; ext_dll = ".so"
+#    ; os_type = "Unix"
+#    ; default_executable_name = "a.out"
+#    ; systhread_supported = true
+#    ; host = "x86_64-pc-linux-gnu"
+#    ; target = "x86_64-pc-linux-gnu"
+#    ; profiling = true
+#    ; flambda = false
+#    ; spacetime = false
+#    ; safe_string = false
+#    ; exec_magic_number = "Caml1999X025"
+#    ; cmi_magic_number = "Caml1999I025"
+#    ; cmo_magic_number = "Caml1999O025"
+#    ; cma_magic_number = "Caml1999A025"
+#    ; cmx_magic_number = "Caml1999Y025"
+#    ; cmxa_magic_number = "Caml1999Z025"
+#    ; ast_impl_magic_number = "Caml1999M025"
+#    ; ast_intf_magic_number = "Caml1999N025"
+#    ; cmxs_magic_number = "Caml1999D025"
+#    ; cmt_magic_number = "Caml1999T025"
+#    ; natdynlink_supported = true
+#    ; supports_shared_libraries = true
+#    ; windows_unicode = false
+#    }
+#  ;
+#  which =
+#    map
+#      { "ocaml" : Some External "/usr/bin/ocaml"
+#      ; "ocamlc" : Some External "/usr/bin/ocamlc.opt"
+#      ; "ocamlobjinfo" : Some External "/usr/bin/ocamlobjinfo.opt"
+#      }
+#  }
+$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl .utop/utop.ml-gen) > _build/default/.utop/.utop.eobjs/utop.ml-gen.d
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -24 -g -bin-annot -I .utop/.utop.eobjs/byte -I /usr/lib/ocaml/bytes -I /usr/lib/ocaml/camomile -I /usr/lib/ocaml/camomile/default_config -I /usr/lib/ocaml/camomile/dyn -I /usr/lib/ocaml/camomile/lib_default -I /usr/lib/ocaml/camomile/library -I /usr/lib/ocaml/charInfo_width -I /usr/lib/ocaml/compiler-libs -I /usr/lib/ocaml/findlib -I /usr/lib/ocaml/lambda-term -I /usr/lib/ocaml/lwt -I /usr/lib/ocaml/lwt/unix -I /usr/lib/ocaml/lwt_log -I /usr/lib/ocaml/lwt_log/core -I /usr/lib/ocaml/lwt_react -I /usr/lib/ocaml/mmap -I /usr/lib/ocaml/ocplib-endian -I /usr/lib/ocaml/react -I /usr/lib/ocaml/result -I /usr/lib/ocaml/seq -I /usr/lib/ocaml/threads -I /usr/lib/ocaml/utop -I /usr/lib/ocaml/zed -no-alias-deps -o .utop/.utop.eobjs/byte/dune__exe__Utop.cmo -c -impl .utop/utop.ml-gen)
+> File ".utop/utop.ml-gen", line 26, characters 0-14:
+> 26 | UTop_main.main ();
+>      ^^^^^^^^^^^^^^
+> Error: Unbound module UTop_main
+[2]
