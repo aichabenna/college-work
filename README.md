@@ -1,11 +1,13 @@
 # college-work
 
+ENSEEIHT, 2021-now
+- 3A Software Engineering
+- 2A Software Engineering
+- 1A Computer Science (SN)
 
 University of Bordeaux, 2019-2021
-L2 Informatique
+- DEUG Computer Science 
 
 
 
-ENSEEIHT, 2021-now
-1A Science du Numérique
-2A Systèmes Logiciels
+
