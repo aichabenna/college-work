@@ -1,0 +1,282 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 128 and seed 4775204867063655873 with 2 workers on 4 cores with 1182MB heap and 2657MB offheap memory [pid: 2635134] (Linux 5.4.0-89-generic amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /home/ahamoir/2A/TLA/TLA-TP3/philosophes1.toolbox/Model_1/MC.tla
+Parsing file /home/ahamoir/2A/TLA/TLA-TP3/philosophes1.toolbox/Model_1/philosophes1.tla
+Parsing file /mnt/n7fs/tla/toolbox-1.7.2/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/TLC.tla
+Parsing file /mnt/n7fs/tla/toolbox-1.7.2/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Naturals.tla
+Parsing file /mnt/n7fs/tla/toolbox-1.7.2/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Sequences.tla
+Parsing file /mnt/n7fs/tla/toolbox-1.7.2/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module philosophes1
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2023-03-22 11:11:35)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2023-03-22 11:11:36.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2114:1 @!@!@
+Deadlock reached.
+@!@!@ENDMSG 2114 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ etat = (0 :> "T" @@ 1 :> "T" @@ 2 :> "T" @@ 3 :> "T")
+/\ etatFourchettes = (0 :> 4 @@ 1 :> 4 @@ 2 :> 4 @@ 3 :> 4)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <demande line 43, col 5 to line 45, col 32 of module philosophes1>
+/\ etat = (0 :> "H" @@ 1 :> "T" @@ 2 :> "T" @@ 3 :> "T")
+/\ etatFourchettes = (0 :> 4 @@ 1 :> 4 @@ 2 :> 4 @@ 3 :> 4)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <priseG line 48, col 5 to line 51, col 21 of module philosophes1>
+/\ etat = (0 :> "H" @@ 1 :> "T" @@ 2 :> "T" @@ 3 :> "T")
+/\ etatFourchettes = (0 :> 0 @@ 1 :> 4 @@ 2 :> 4 @@ 3 :> 4)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <demande line 43, col 5 to line 45, col 32 of module philosophes1>
+/\ etat = (0 :> "H" @@ 1 :> "H" @@ 2 :> "T" @@ 3 :> "T")
+/\ etatFourchettes = (0 :> 0 @@ 1 :> 4 @@ 2 :> 4 @@ 3 :> 4)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <priseG line 48, col 5 to line 51, col 21 of module philosophes1>
+/\ etat = (0 :> "H" @@ 1 :> "H" @@ 2 :> "T" @@ 3 :> "T")
+/\ etatFourchettes = (0 :> 0 @@ 1 :> 1 @@ 2 :> 4 @@ 3 :> 4)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <demande line 43, col 5 to line 45, col 32 of module philosophes1>
+/\ etat = (0 :> "H" @@ 1 :> "H" @@ 2 :> "H" @@ 3 :> "T")
+/\ etatFourchettes = (0 :> 0 @@ 1 :> 1 @@ 2 :> 4 @@ 3 :> 4)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <priseG line 48, col 5 to line 51, col 21 of module philosophes1>
+/\ etat = (0 :> "H" @@ 1 :> "H" @@ 2 :> "H" @@ 3 :> "T")
+/\ etatFourchettes = (0 :> 0 @@ 1 :> 1 @@ 2 :> 2 @@ 3 :> 4)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+8: <demande line 43, col 5 to line 45, col 32 of module philosophes1>
+/\ etat = (0 :> "H" @@ 1 :> "H" @@ 2 :> "H" @@ 3 :> "H")
+/\ etatFourchettes = (0 :> 0 @@ 1 :> 1 @@ 2 :> 2 @@ 3 :> 4)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+9: <priseG line 48, col 5 to line 51, col 21 of module philosophes1>
+/\ etat = (0 :> "H" @@ 1 :> "H" @@ 2 :> "H" @@ 3 :> "H")
+/\ etatFourchettes = (0 :> 0 @@ 1 :> 1 @@ 2 :> 2 @@ 3 :> 3)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2023-03-22 11:11:36
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 38, col 1 to line 38, col 4 of module philosophes1>: 2:2
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 39, col 5 to line 40, col 56 of module philosophes1: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<demande line 42, col 1 to line 42, col 10 of module philosophes1>: 146:488
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 43, col 8 to line 43, col 25 of module philosophes1: 2176
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 43, col 8 to line 43, col 14 of module philosophes1: 1688
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 43, col 18 to line 43, col 25 of module philosophes1: 1688
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 8 to line 44, col 44 of module philosophes1: 488
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 45, col 8 to line 45, col 32 of module philosophes1: 488
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<priseG line 47, col 1 to line 47, col 9 of module philosophes1>: 99:423
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 48, col 8 to line 48, col 23 of module philosophes1: 2107
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 48, col 8 to line 48, col 14 of module philosophes1: 1684
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 48, col 18 to line 48, col 23 of module philosophes1: 1684
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 49, col 8 to line 49, col 37 of module philosophes1: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 49, col 8 to line 49, col 29 of module philosophes1: 1101
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 49, col 33 to line 49, col 37 of module philosophes1: 1101
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 50, col 8 to line 50, col 63 of module philosophes1: 423
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 51, col 8 to line 51, col 21 of module philosophes1: 423
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<priseD line 53, col 1 to line 53, col 9 of module philosophes1>: 157:425
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 54, col 8 to line 54, col 23 of module philosophes1: 2105
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 54, col 8 to line 54, col 14 of module philosophes1: 1680
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 54, col 18 to line 54, col 23 of module philosophes1: 1680
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 55, col 8 to line 55, col 37 of module philosophes1: 1522
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 55, col 8 to line 55, col 29 of module philosophes1: 1097
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 55, col 33 to line 55, col 37 of module philosophes1: 1097
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 56, col 8 to line 56, col 63 of module philosophes1: 425
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 8 to line 57, col 21 of module philosophes1: 425
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<mange line 59, col 1 to line 59, col 8 of module philosophes1>: 53:137
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 60, col 8 to line 60, col 23 of module philosophes1: 1817
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 60, col 8 to line 60, col 14 of module philosophes1: 1680
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 60, col 18 to line 60, col 23 of module philosophes1: 1680
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 61, col 8 to line 61, col 33 of module philosophes1: 1234
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 61, col 8 to line 61, col 29 of module philosophes1: 1097
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 61, col 33 to line 61, col 33 of module philosophes1: 1097
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 62, col 8 to line 62, col 33 of module philosophes1: 524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 62, col 8 to line 62, col 29 of module philosophes1: 387
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 62, col 33 to line 62, col 33 of module philosophes1: 387
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 63, col 8 to line 63, col 44 of module philosophes1: 137
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 64, col 8 to line 64, col 32 of module philosophes1: 137
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<pense line 66, col 1 to line 66, col 8 of module philosophes1>: 0:99
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 67, col 8 to line 67, col 23 of module philosophes1: 1779
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 67, col 8 to line 67, col 14 of module philosophes1: 1680
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 67, col 18 to line 67, col 23 of module philosophes1: 1680
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 68, col 8 to line 68, col 46 of module philosophes1: 99
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 8 to line 69, col 87 of module philosophes1: 99
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<Action line 33, col 16 to line 33, col 108 of module philosophes1>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 33, col 16 to line 33, col 108 of module philosophes1: 456
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 33, col 33 to line 33, col 108 of module philosophes1: 1824
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 33, col 33 to line 33, col 48 of module philosophes1: 1824
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 33, col 53 to line 33, col 108 of module philosophes1: 137
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 33, col 25 to line 33, col 30 of module philosophes1: 456
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<Action line 34, col 16 to line 34, col 110 of module philosophes1>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 34, col 16 to line 34, col 110 of module philosophes1: 456
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 34, col 33 to line 34, col 110 of module philosophes1: 1824
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 34, col 33 to line 34, col 50 of module philosophes1: 1824
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 34, col 55 to line 34, col 110 of module philosophes1: 501
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 34, col 25 to line 34, col 30 of module philosophes1: 456
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(10) at 2023-03-22 11:11:36: 1 559 states generated (91 616 s/min), 456 distinct states found (26 797 ds/min), 39 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+1559 states generated, 456 distinct states found, 39 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 10.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 5 and the 95th percentile is 3).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 1036ms at (2023-03-22 11:11:36)
+@!@!@ENDMSG 2186 @!@!@
