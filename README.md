@@ -1,4 +1,4 @@
-# Projects throughout my academic journey
+# College Projects
 
 ENSEEIHT, 2021-now
 - 3A Software Engineering
